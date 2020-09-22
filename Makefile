@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/09/22 12:10:53 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/09/22 17:00:11 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,8 @@ CC = gcc -Wall -Wextra -Werror
 
 INCLUDES = libft.h
 
+IGNORE = .gitignore
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -98,13 +100,22 @@ obj/%.o: %.c
 norm:
 	@norminette $(addprefix ., $(MANDATORY) $(BONUS) $(ADDED)) $(INCLUDES) Makefile
 
+ignore:
+	@echo $(NAME) > $(IGNORE)
+	@echo .DS_Store >> $(IGNORE)
+	@echo *.o >> $(IGNORE)
+	@echo **/obj >> $(IGNORE)
+	@echo a.out  >> $(IGNORE)
+	@echo main.c >> $(IGNORE)
+	@echo *.txt >> $(IGNORE)
+
 .PHONY:	clean fclean re
 
 clean:
 	@/bin/rm -f $(OBJ)
 	@/bin/rm -f *~
 	@/bin/rm -f *.o
-	@/bin/rm -f .DS_store
+	@/bin/rm -f .DS_Store
 	@/bin/rm -f a.out
 
 fclean: clean
