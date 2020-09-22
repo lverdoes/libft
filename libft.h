@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/08/02 17:42:23 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/09/22 11:58:56 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,29 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap
 					(t_list *lst, void *(*f)(void *), void (*del)(void *));
-					
-int					get_next_line(int fd, char **line);
-int					ft_charsearch(const char c, const char *set);
-char				**ft_realloc(char **src, char *line);
-char				**ft_arraydup(const char **array);
-void				ft_print_array(char **array);
-int					ft_free_array(void **array, size_t i);
-char				**ft_split_multi(const char *src, char *sep, size_t *size);
-char				*ft_strxjoin(char *src, ...);
-double				ft_atod(const char *str);
-char				*ft_strexpand
-					(char *src1, const char *src2, char *tar, size_t tar_len);
-size_t				ft_substrlen(const char *str, const char *set);
 
+char				*ft_append(char *s1, const char *s2);
+size_t				ft_array_size(const char **array);
+char				**ft_arraydup(const char **array);
+double				ft_atod(const char *str);
+int					ft_charsearch(const char c, const char *set);
+size_t				ft_counter(const char *s, char c);
+int					ft_free_array(void **array, size_t i);
+int					ft_free_ret_int(void *ptr, int ret);
+void				*ft_free_ret_ptr(void *ptr, void *ret);
+void				ft_free(void *ptr);
+int					ft_getline(int fd, char **line);
+int					ft_iswhitespace(int c);
+void				ft_print_array(char **array);
+char				**ft_realloc(char **src, const char *line, size_t *size);
+char				**ft_split_multi(const char *src, char *sep, size_t *size);
+void				ft_str_to_lower(char *str);
+void				ft_str_to_upper(char *str);
+int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_strexpand
+					(char *src1, const char *src2, char *ptr, size_t ptr_len);
+char				*ft_strxjoin(const char *src, ...);
+size_t				ft_substrlen(const char *str, const char *set);
+int					get_next_line(int fd, char **line);
 
 #endif
