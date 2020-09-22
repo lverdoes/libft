@@ -6,13 +6,13 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 10:29:48 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 12:13:20 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/09/22 17:05:30 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "../libft.h"
 
-size_t	ft_counter(const char *s, char c)
+size_t	ft_counter(const char *s, const char *set)
 {
 	size_t count;
 	size_t i;
@@ -21,7 +21,7 @@ size_t	ft_counter(const char *s, char c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (ft_charsearch(s[i], set))
 			count++;
 		i++;
 	}
