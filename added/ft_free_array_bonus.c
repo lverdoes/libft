@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/16 13:42:00 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 11:44:01 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/09/24 11:55:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	*ft_free_ret_ptr(void *ptr, void *ret)
 	return (ret);
 }
 
-void	ft_free(void *ptr)
+int		ft_free(void *ptr)
 {
 	free(ptr);
+	return (0);
 }

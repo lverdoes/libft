@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 17:05:50 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/09/24 11:57:19 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ size_t				ft_counter(const char *s, const char *set);
 int					ft_free_array(void **array, size_t i);
 int					ft_free_ret_int(void *ptr, int ret);
 void				*ft_free_ret_ptr(void *ptr, void *ret);
-void				ft_free(void *ptr);
+int					ft_free(void *ptr);
 int					ft_getline(int fd, char **line);
 int					ft_iswhitespace(int c);
 void				ft_print_array(char **array);
