@@ -6,13 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/21 12:21:44 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/21 12:57:34 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/06 09:15:26 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <stdarg.h>
-#include <stdlib.h>
 
 static size_t	get_len(const char *src, va_list list)
 {

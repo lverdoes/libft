@@ -6,21 +6,20 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:17:12 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/11 10:23:27 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/05 19:46:42 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdlib.h>
 
 static char		**free_array(char **array, size_t i)
 {
 	while (i > 0)
 	{
 		i--;
-		free(array[i]);
+		ft_free(array[i]);
 	}
-	free(array);
+	ft_free(array);
 	return (NULL);
 }
 
@@ -46,7 +45,7 @@ char			**ft_realloc(char **src, const char *line, size_t *size)
 	if (!dst)
 		return (free_array(src, array_size));
 	copy_ptrs(dst, src, array_size);
-	free(src);
+	ft_free(src);
 	dst[array_size] = ft_strdup(line);
 	if (!dst[array_size])
 		return (free_array(dst, array_size));

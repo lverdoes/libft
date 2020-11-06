@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/24 11:57:19 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/06 09:27:08 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ char				**ft_split_multi(const char *src, char *sep, size_t *size);
 void				ft_str_to_lower(char *str);
 void				ft_str_to_upper(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
-char				*ft_strexpand
-					(char *src1, const char *src2, char *ptr, size_t ptr_len);
+char				*ft_replace
+					(char *s1, const char *s2, char *ptr, size_t ptr_len);
 char				*ft_strxjoin(const char *src, ...);
 size_t				ft_substrlen(const char *str, const char *set);
 int					get_next_line(int fd, char **line);

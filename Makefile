@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/09/22 17:00:11 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/11/05 21:15:39 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,6 @@ BONUS =	\
 	/bonus/ft_lstmap_bonus.c
 
 ADDED =	\
-	/added/get_next_line_bonus.c \
 	/added/ft_append_bonus.c \
 	/added/ft_array_size_bonus.c \
 	/added/ft_arraydup_bonus.c \
@@ -72,19 +71,20 @@ ADDED =	\
 	/added/ft_iswhitespace_bonus.c \
 	/added/ft_print_array_bonus.c \
 	/added/ft_realloc_bonus.c \
+	/added/ft_replace_bonus.c \
 	/added/ft_split_multi_bonus.c \
-	/added/ft_strcmp_bonus.c \
-	/added/ft_strexpand_bonus.c \
-	/added/ft_strxjoin_bonus.c \
 	/added/ft_str_to_lower_bonus.c \
 	/added/ft_str_to_upper_bonus.c \
-	/added/ft_substrlen_bonus.c
+	/added/ft_strcmp_bonus.c \
+	/added/ft_strxjoin_bonus.c \
+	/added/ft_substrlen_bonus.c \
+	/added/get_next_line_bonus.c 
 
 OBJ = $(addprefix obj, $(MANDATORY:.c=.o) $(BONUS:.c=.o) $(ADDED:.c=.o))
 
 CC = gcc -Wall -Wextra -Werror
 
-INCLUDES = libft.h
+HEADERS = libft.h
 
 IGNORE = .gitignore
 
@@ -98,7 +98,8 @@ obj/%.o: %.c
 	$(CC) -c $< -o $@
 
 norm:
-	@norminette $(addprefix ., $(MANDATORY) $(BONUS) $(ADDED)) $(INCLUDES) Makefile
+	@norminette $(addprefix ., $(MANDATORY) $(BONUS) $(ADDED)) 
+	@norminette $(HEADERS) Makefile
 
 ignore:
 	@echo $(NAME) > $(IGNORE)

@@ -6,12 +6,11 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 08:58:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/11 10:23:31 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/05 20:55:39 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdlib.h>
 
 static size_t	get_start(const char *src, char *sep, size_t i)
 {
