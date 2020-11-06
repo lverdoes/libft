@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 20:45:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 09:43:27 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/07 00:14:56 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 **	s1:			The initial string that will be appended to.
-**				If it's NULL, an empty string will be created.
+**				If NULL, an empty string will be created.
 **	s2:			The string to append to s1.
 **	return:		After freeing s1, the combined string (dst) will be returned.
 **				The return can be stored in the same var as param 1.

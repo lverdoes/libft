@@ -6,13 +6,13 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:17:12 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/05 19:46:42 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/06 23:31:56 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static char		**free_array(char **array, size_t i)
+static char	**free_array(char **array, size_t i)
 {
 	while (i > 0)
 	{
@@ -23,7 +23,7 @@ static char		**free_array(char **array, size_t i)
 	return (NULL);
 }
 
-static void		copy_ptrs(char **dst, char **src, size_t size)
+static void	copy_ptrs(char **dst, char **src, size_t size)
 {
 	size_t i;
 
@@ -35,7 +35,7 @@ static void		copy_ptrs(char **dst, char **src, size_t size)
 	}
 }
 
-char			**ft_realloc(char **src, const char *line, size_t *size)
+char		**ft_realloc(char **src, const char *line, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;

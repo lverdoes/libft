@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 09:27:08 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/06 23:18:00 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,10 @@ char				*ft_replace
 char				*ft_strxjoin(const char *src, ...);
 size_t				ft_substrlen(const char *str, const char *set);
 int					get_next_line(int fd, char **line);
+
+void				ft_lstremove_one
+					(t_list **head, t_list *node, void (*del)(void *));
+void				ft_lstmove_back(t_list **head, t_list *node);
+void				ft_lstmove_front(t_list **head, t_list *node);
 
 #endif

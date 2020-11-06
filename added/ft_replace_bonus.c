@@ -6,20 +6,23 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/02 16:37:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 09:30:47 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/07 00:05:49 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /*
-**	s1:			The source string in which a part must be replaced.
+**	s1:			The source string in which a part is to be replaced.
 **	s2:			The new string which must be pasted into s1.
-**				If s2 is NULL or empty ('\0'), nothing is pasted.
-**	ptr:		The starting point of the part that must be removed from s1.
+**				If s2 is NULL or empty ("\0"), nothing is pasted, but depending
+**				on the length of ptr_len, a part can still be removed.
+**	ptr:		The starting point of the part to be removed from s1.
 **				If ptr is outside s1, NULL is returned.
-**	ptr_len:	The length of the part that must be removed.
+**				If ptr points to the '\0' of s1, it will function like strjoin.
+**	ptr_len:	The length of the part to be removed.
 **				If ptr_len is 0, nothing is removed.
+**				ptr_len is 'safe' if it is too big for s1.
 **	return:		A modified copy of s1 is returned.
 */
 

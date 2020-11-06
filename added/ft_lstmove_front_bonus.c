@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_array_bonus.c                             :+:    :+:            */
+/*   ft_lstmove_front_bonus.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/07/24 11:12:42 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 23:31:14 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/06 23:16:49 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/06 23:23:05 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <unistd.h>
 
-void	ft_print_array(char **array)
+/*
+**		Moves an element in a list to the front of the same list
+**		and sets the previous element to point to the next element.
+*/
+
+void	ft_lstmove_front(t_list **head, t_list *node)
 {
-	size_t i;
-
-	i = 0;
-	while (array[i] != NULL)
+	t_list *tmp;
+	
+	if (!node || !*head || !(*head)->next || node == *head)
+		return ;
+	tmp = *head;
+	while (tmp->next)
 	{
-		ft_putchar_fd('[', 1);
-		ft_putnbr_fd((int)i, 1);
-		ft_putstr_fd("] ", 1);
-		ft_putendl_fd(array[i], 1);
-		i++;
+		if (tmp->next == node)
+		{
+			tmp->next = node->next;
+			break ;
+		}
+		tmp = tmp->next;
 	}
+	node->next = *head;
+	*head = node;
 }

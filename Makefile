@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/11/05 21:15:39 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/11/06 23:50:04 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,9 @@ ADDED =	\
 	/added/ft_free_array_bonus.c \
 	/added/ft_getline_bonus.c \
 	/added/ft_iswhitespace_bonus.c \
+	/added/ft_lstmove_back_bonus.c \
+	/added/ft_lstmove_front_bonus.c \
+	/added/ft_lstremove_one_bonus.c \
 	/added/ft_print_array_bonus.c \
 	/added/ft_realloc_bonus.c \
 	/added/ft_replace_bonus.c \
