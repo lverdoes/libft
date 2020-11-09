@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/06 23:16:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 23:23:05 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/09 08:16:38 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	ft_lstmove_front(t_list **head, t_list *node)
 {
 	t_list *tmp;
-	
+
 	if (!node || !*head || !(*head)->next || node == *head)
 		return ;
 	tmp = *head;
