@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstremove_one_bonus.c                           :+:    :+:            */
+/*   ft_lstmove_front_bonus.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/06 21:05:30 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/09 08:16:55 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/06 23:16:49 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/14 23:13:09 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /*
-**		Removes and frees an element from a list and sets the previous element
-**		to point to the next element.
+**		Moves an element in a list to the front of the list
+**		and sets the previous element to point to the next element.
 */
 
-void	ft_lstremove_one(t_list **head, t_list *node, void (*del)(void *))
+void	ft_lstmove_front(t_list **head, t_list *node)
 {
 	t_list *tmp;
-	t_list *prev;
 
-	if (!*head || !node)
+	if (!node || !*head || !(*head)->next || node == *head)
 		return ;
-	if (node == *head)
+	tmp = *head;
+	while (tmp->next)
 	{
-		*head = (*head)->next;
-		ft_lstdelone(node, del);
-		return ;
-	}
-	prev = *head;
-	tmp = (*head)->next;
-	while (tmp)
-	{
-		if (tmp == node)
+		if (tmp->next == node)
 		{
-			prev->next = tmp->next;
-			ft_lstdelone(tmp, del);
-			return ;
+			tmp->next = node->next;
+			break ;
 		}
-		prev = tmp;
 		tmp = tmp->next;
 	}
+	node->next = *head;
+	*head = node;
 }

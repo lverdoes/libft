@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmove_front_bonus.c                           :+:    :+:            */
+/*   ft_lstmove_back_bonus.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/06 23:16:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/09 08:16:38 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/06 23:16:51 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/14 23:13:06 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /*
-**		Moves an element in a list to the front of the same list
+**		Moves an element in a list to the back of the list
 **		and sets the previous element to point to the next element.
 */
 
-void	ft_lstmove_front(t_list **head, t_list *node)
+void	ft_lstmove_back(t_list **head, t_list *node)
 {
 	t_list *tmp;
 
-	if (!node || !*head || !(*head)->next || node == *head)
+	if (!node || !*head || !(*head)->next || !node->next)
 		return ;
 	tmp = *head;
-	while (tmp->next)
+	if (node == *head)
+		*head = node->next;
+	else
 	{
-		if (tmp->next == node)
+		while (tmp->next)
 		{
-			tmp->next = node->next;
-			break ;
+			if (tmp->next == node)
+				tmp->next = node->next;
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
 	}
-	node->next = *head;
-	*head = node;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = node;
+	node->next = NULL;
 }

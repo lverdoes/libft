@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmove_back_bonus.c                            :+:    :+:            */
+/*   ft_lstremove_one_bonus.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/06 23:16:51 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/09 08:16:32 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/06 21:05:30 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/14 22:27:42 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /*
-**		Moves an element in a list to the back of the same list
-**		and sets the previous element to point to the next element.
+**		Removes and frees an element from a list and sets the previous element
+**		to point to the next element.
 */
 
-void	ft_lstmove_back(t_list **head, t_list *node)
+void	ft_lstremove_one(t_list **head, t_list *node, void (*del)(void *))
 {
 	t_list *tmp;
+	t_list *prev;
 
-	if (!node || !*head || !(*head)->next || !node->next)
+	if (!*head || !node)
 		return ;
-	tmp = *head;
 	if (node == *head)
-		*head = node->next;
-	else
 	{
-		while (tmp->next)
-		{
-			if (tmp->next == node)
-				tmp->next = node->next;
-			tmp = tmp->next;
-		}
+		*head = (*head)->next;
+		ft_lstdelone(node, del);
+		return ;
 	}
-	while (tmp->next)
+	prev = *head;
+	tmp = (*head)->next;
+	while (tmp)
+	{
+		if (tmp == node)
+		{
+			prev->next = tmp->next;
+			ft_lstdelone(tmp, del);
+			return ;
+		}
+		prev = tmp;
 		tmp = tmp->next;
-	tmp->next = node;
-	node->next = NULL;
+	}
 }
