@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/13 13:23:10 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 22:44:34 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/15 00:23:02 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_list	*ft_lstnew(void *content)
 
 	list = ft_calloc(1, sizeof(t_list));
 	if (!list)
-		return (0);
+		return (NULL);
 	list->content = content;
-	list->next = 0;
+	list->next = NULL;
 	return (list);
 }

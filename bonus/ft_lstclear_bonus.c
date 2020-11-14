@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/14 16:57:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/11 10:25:50 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/15 00:19:05 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		*lst = (*lst)->next;
 		ft_lstdelone(tmp, *del);
 	}
-	*lst = 0;
 }
