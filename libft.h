@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/14 23:45:04 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/16 09:30:08 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void				ft_lstmove_front(t_list **head, t_list *node);
 
 char				*ft_append(char *s1, const char *s2);
 size_t				ft_array_size(const char **array);
-char				**ft_arraydup(const char **array);
+char				**ft_arraydup(const char **array, size_t size);
 double				ft_atod(const char *str);
 int					ft_charsearch(const char c, const char *set);
 size_t				ft_counter(const char *s, const char *set);
@@ -114,7 +114,7 @@ char				*ft_replace
 					(char *s1, const char *s2, char *ptr, size_t ptr_len);
 char				*ft_strxjoin(const char *src, ...);
 size_t				ft_substrlen(const char *str, const char *set);
+void    			ft_swap(void *a, void *b, size_t size_of_data_type);
 int					get_next_line(int fd, char **line);
-
 
 #endif
