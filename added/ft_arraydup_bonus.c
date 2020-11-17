@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/16 09:30:20 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/17 12:07:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char			**ft_arraydup(const char **array, size_t size)
 	if (!dst)
 		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i < size && array[i] != NULL)
 	{
 		dst[i] = ft_strdup(array[i]);
 		if (!dst[i])
