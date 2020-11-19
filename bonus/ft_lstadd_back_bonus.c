@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/13 15:40:26 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/15 00:13:50 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/19 17:59:45 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list *list;
 
-	if (!new)
-		return ;
 	list = *alst;
-	while (list)
+	if (list)
 	{
-		if (!list->next)
-			list->next = new;
-		list = list->next;
-	}	
+		while (list->next)
+			list = list->next;
+		list->next = new;
+	}
+	else
+		ft_lstadd_front(alst, new);
 }

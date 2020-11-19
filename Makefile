@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/11/16 09:21:57 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/11/19 17:50:35 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,3 +130,6 @@ fclean: clean
 	@/bin/rm -f *.a
 
 re: fclean all
+
+libft:
+	cp -R ~/repositories/libft .
