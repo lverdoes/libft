@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 12:26:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/08/09 21:18:44 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/11/21 17:39:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t i;
 	size_t j;
 
-	i = 0;
 	if (needle[0] == '\0')
 		return ((char *)haystack);
+	i = 0;
 	while (haystack[i] != '\0' && i < len)
 	{
 		j = 0;
