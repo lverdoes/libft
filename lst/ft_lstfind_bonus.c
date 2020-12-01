@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_lstfind_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/24 17:38:32 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/25 11:33:11 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
+t_list	*ft_lstfind(t_list *list, void *data_ref, int (*cmp)())
 {
-	char	**dst;
-	size_t	i;
-
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
+	while (list)
 	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
+		if (!cmp(data_ref, list->content))
+			return (list);
+		list = list->next;
 	}
-	return (dst);
+	return (NULL);
 }

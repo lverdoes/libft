@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_number_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/28 00:19:16 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 21:22:02 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
-{
-	char	**dst;
-	size_t	i;
+/*
+**	Return the node at index position number.
+**	For number = 0, head is returned.
+**	If number is out range, NULL is returned.
+*/
 
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
+t_node	*ft_node_number(t_node *node, size_t number)
+{
+	size_t i;
+
 	i = 0;
-	while (i < size && array[i] != NULL)
+	while (node)
 	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
+		if (i == number)
+			return (node);
 		i++;
+		node = node->next;
 	}
-	return (dst);
+	return (NULL);
 }

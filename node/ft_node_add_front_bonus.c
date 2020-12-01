@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_add_front_bonus.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/27 23:32:40 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 19:32:43 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
-{
-	char	**dst;
-	size_t	i;
+/*
+**	Add a new unlinked node to the front of the list.
+*/
 
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
-	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
-	}
-	return (dst);
+void	ft_node_add_front(t_node **head, t_node *new)
+{
+	new->next = *head;
+	(*head)->prev = new;
+	*head = new;
 }

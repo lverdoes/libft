@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_new_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/27 23:35:58 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 00:00:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
+t_node	*ft_node_new(void *content)
 {
-	char	**dst;
-	size_t	i;
+	t_node *new_node;
 
-	if (!array)
+	new_node = ft_calloc(1, sizeof(t_node));
+	if (!new_node)
 		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
-	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
-	}
-	return (dst);
+	new_node->content = content;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+	return (new_node);
 }

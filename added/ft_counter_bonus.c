@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/08 10:29:48 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 17:05:30 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/01 10:24:10 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_counter(const char *s, const char *set)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_charsearch(s[i], set))
+		if (ft_strchr(set, s[i]))
 			count++;
 		i++;
 	}

@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/11/19 17:50:35 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/12/01 12:07:35 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,28 +48,23 @@ MANDATORY =	\
 	/mandatory/ft_putendl_fd.c \
 	/mandatory/ft_putnbr_fd.c
 
-BONUS =	\
-	/bonus/ft_lstnew_bonus.c \
-	/bonus/ft_lstadd_front_bonus.c \
-	/bonus/ft_lstsize_bonus.c \
-	/bonus/ft_lstlast_bonus.c \
-	/bonus/ft_lstadd_back_bonus.c \
-	/bonus/ft_lstdelone_bonus.c \
-	/bonus/ft_lstclear_bonus.c \
-	/bonus/ft_lstiter_bonus.c \
-	/bonus/ft_lstmap_bonus.c \
-	/bonus/ft_lstinsert_after_bonus.c \
-	/bonus/ft_lstinsert_before_bonus.c \
-	/bonus/ft_lstmove_back_bonus.c \
-	/bonus/ft_lstmove_front_bonus.c \
-	/bonus/ft_lstremove_one_bonus.c 
+LST = \
+	/lst/ft_lstadd_back_bonus.c \
+	/lst/ft_lstadd_front_bonus.c \
+	/lst/ft_lstclear_bonus.c \
+	/lst/ft_lstdelone_bonus.c \
+	/lst/ft_lstfind_bonus.c \
+	/lst/ft_lstiter_bonus.c \
+	/lst/ft_lstlast_bonus.c \
+	/lst/ft_lstmap_bonus.c \
+	/lst/ft_lstnew_bonus.c \
+	/lst/ft_lstsize_bonus.c \
 
 ADDED =	\
 	/added/ft_append_bonus.c \
 	/added/ft_array_size_bonus.c \
 	/added/ft_arraydup_bonus.c \
 	/added/ft_atod_bonus.c \
-	/added/ft_charsearch_bonus.c \
 	/added/ft_counter_bonus.c \
 	/added/ft_free_array_bonus.c \
 	/added/ft_getline_bonus.c \
@@ -77,16 +72,38 @@ ADDED =	\
 	/added/ft_print_array_bonus.c \
 	/added/ft_realloc_bonus.c \
 	/added/ft_replace_bonus.c \
-	/added/ft_split_multi_bonus.c \
+	/added/ft_split_set_bonus.c \
 	/added/ft_str_to_lower_bonus.c \
 	/added/ft_str_to_upper_bonus.c \
 	/added/ft_strcmp_bonus.c \
 	/added/ft_strxjoin_bonus.c \
 	/added/ft_substrlen_bonus.c \
 	/added/ft_swap_bonus.c \
-	/added/get_next_line_bonus.c 
+	/added/get_next_line_bonus.c
 
-OBJ = $(addprefix obj, $(MANDATORY:.c=.o) $(BONUS:.c=.o) $(ADDED:.c=.o))
+NODE = \
+	/node/ft_node_add_back_bonus.c \
+	/node/ft_node_add_front_bonus.c \
+	/node/ft_node_del_all_bonus.c \
+	/node/ft_node_del_one_bonus.c \
+	/node/ft_node_find_bonus.c \
+	/node/ft_node_insert_after_bonus.c \
+	/node/ft_node_insert_before_bonus.c \
+	/node/ft_node_insert_sort_bonus.c \
+	/node/ft_node_is_sorted_bonus.c \
+	/node/ft_node_iter_bonus.c \
+	/node/ft_node_join_bonus.c \
+	/node/ft_node_last_bonus.c \
+	/node/ft_node_merge_bonus.c \
+	/node/ft_node_new_bonus.c \
+	/node/ft_node_number_bonus.c \
+	/node/ft_node_remove_one_bonus.c \
+	/node/ft_node_size_bonus.c \
+	/node/ft_node_sort_bonus.c \
+	/node/ft_node_unlink_bonus.c \
+	/node/ft_print_node_list_bonus.c
+
+OBJ = $(addprefix obj, $(MANDATORY:.c=.o) $(LST:.c=.o) $(ADDED:.c=.o) $(NODE:.c=.o))
 
 CC = gcc -Wall -Wextra -Werror
 
@@ -100,11 +117,11 @@ $(NAME): $(OBJ)
 	@ar rcs $(NAME) $?
 
 obj/%.o: %.c
-	@mkdir -p obj obj/mandatory obj/bonus obj/added
+	@mkdir -p obj obj/mandatory obj/lst obj/added obj/node
 	$(CC) -c $< -o $@
 
 norm:
-	@norminette $(addprefix ., $(MANDATORY) $(BONUS) $(ADDED)) 
+	@norminette $(addprefix ., $(MANDATORY) $(LST) $(ADDED) $(NODE)) 
 	@norminette $(HEADERS) Makefile
 
 ignore:
@@ -130,6 +147,3 @@ fclean: clean
 	@/bin/rm -f *.a
 
 re: fclean all
-
-libft:
-	cp -R ~/repositories/libft .

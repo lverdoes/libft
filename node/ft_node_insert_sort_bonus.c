@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstmove_back_bonus.c                            :+:    :+:            */
+/*   ft_node_insert_sort_bonus.c                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/06 23:16:51 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/14 23:13:06 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/01 08:31:48 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/01 10:01:17 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-/*
-**		Moves an element in a list to the back of the list
-**		and sets the previous element to point to the next element.
-*/
-
-void	ft_lstmove_back(t_list **head, t_list *node)
+void	ft_node_insert_sort(t_node **head, t_node *node, int (*cmp)())
 {
-	t_list *tmp;
+	t_node *tmp;
 
-	if (!node || !*head || !(*head)->next || !node->next)
-		return ;
 	tmp = *head;
-	if (node == *head)
-		*head = node->next;
-	else
+	while (tmp)
 	{
-		while (tmp->next)
+		if (cmp(node->content, tmp->content) <= 0)
 		{
-			if (tmp->next == node)
-				tmp->next = node->next;
-			tmp = tmp->next;
+			ft_node_insert_before(head, node, tmp);
+			return ;
 		}
-	}
-	while (tmp->next)
 		tmp = tmp->next;
-	tmp->next = node;
-	node->next = NULL;
+	}
+	ft_node_add_back(head, node);
 }

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_find_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/28 00:19:26 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 00:25:03 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
+t_node	*ft_node_find(t_node *node, void *data_ref, int (*cmp)())
 {
-	char	**dst;
-	size_t	i;
-
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
+	while (node)
 	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
+		if (!cmp(data_ref, node->content))
+			return (node);
+		node = node->next;
 	}
-	return (dst);
+	return (NULL);
 }

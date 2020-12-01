@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_split_multi_bonus.c                             :+:    :+:            */
+/*   ft_split_set_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 08:58:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 23:32:09 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/01 11:53:49 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static size_t	get_start(const char *src, char *sep, size_t i)
+static size_t	get_start(const char *s, const char *set, size_t i)
 {
-	while (src[i] != '\0' && ft_charsearch(src[i], sep))
+	while (s[i] != '\0' && ft_strchr(set, s[i]))
 		i++;
 	return (i);
 }
 
-static size_t	get_len(const char *src, char *sep, size_t start)
+static size_t	get_len(const char *s, const char *set, size_t start)
 {
 	size_t i;
 	size_t len;
 
 	i = start;
 	len = 0;
-	while (src[i] != '\0' && !ft_charsearch(src[i], sep))
+	while (s[i] != '\0' && !ft_strchr(set, s[i]))
 	{
 		i++;
 		len++;
@@ -34,30 +34,30 @@ static size_t	get_len(const char *src, char *sep, size_t start)
 	return (len);
 }
 
-static size_t	count_strings(const char *src, char *sep)
+static size_t	count_strings(const char *s, const char *set)
 {
 	size_t i;
 	size_t count;
 
 	i = 0;
 	count = 0;
-	if (ft_strlen(sep) == 0 && src[i] != '\0')
+	if (ft_strlen(set) == 0 && s[i] != '\0')
 		return (1);
-	while (src[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (!ft_charsearch(src[i], sep))
+		if (!ft_strchr(set, s[i]))
 		{
 			count++;
-			while (!ft_charsearch(src[i], sep) && src[i] != '\0')
+			while (!ft_strchr(set, s[i]) && s[i] != '\0')
 				i++;
 		}
-		while (ft_charsearch(src[i], sep))
+		while (ft_strchr(set, s[i]))
 			i++;
 	}
 	return (count);
 }
 
-static int		init_dst(char **dst, const char *src, char *sep, size_t size)
+static int		init_dst(char **dst, const char *s, const char *set, size_t size)
 {
 	size_t i;
 	size_t start;
@@ -68,9 +68,9 @@ static int		init_dst(char **dst, const char *src, char *sep, size_t size)
 	len = 0;
 	while (i < size)
 	{
-		start = get_start(src, sep, start + len);
-		len = get_len(src, sep, start);
-		dst[i] = ft_substr(src, start, len);
+		start = get_start(s, set, start + len);
+		len = get_len(s, set, start);
+		dst[i] = ft_substr(s, start, len);
 		if (!dst[i])
 			return (ft_free_array((void **)dst, i));
 		i++;
@@ -78,18 +78,18 @@ static int		init_dst(char **dst, const char *src, char *sep, size_t size)
 	return (1);
 }
 
-char			**ft_split_multi(const char *src, char *sep, size_t *size)
+char			**ft_split_set(const char *s, const char *set, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;
 
-	if (!src)
+	if (!s)
 		return (NULL);
-	array_size = count_strings(src, sep);
+	array_size = count_strings(s, set);
 	dst = ft_calloc((array_size + 1), sizeof(char *));
 	if (!dst)
 		return (NULL);
-	if (!init_dst(dst, src, sep, array_size))
+	if (!init_dst(dst, s, set, array_size))
 		return (NULL);
 	if (size)
 		*size = array_size;

@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/16 09:30:08 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/01 12:03:59 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ size_t				ft_strlen(const char *s);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr
-					(const char *haystack, const char *needle, size_t len);
+						(const char *haystack, const char *needle, size_t len);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -60,7 +60,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /*
-**					./bonus/
+**					./lst/
 */
 
 typedef struct		s_list
@@ -73,20 +73,13 @@ void				ft_lstadd_back(t_list **alst, t_list *new);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list				*ft_lstfind(t_list *list, void *data_ref, int (*cmp)());
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap
-					(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst,
+						void *(*f)(void *), void (*del)(void *));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
-void				ft_lstinsert_after
-					(t_list **head, t_list *node, t_list *after_this);
-void				ft_lstinsert_before
-					(t_list **head, t_list *node, t_list *before_this);
-void				ft_lstremove_one
-					(t_list **head, t_list *node, void (*del)(void *));
-void				ft_lstmove_back(t_list **head, t_list *node);
-void				ft_lstmove_front(t_list **head, t_list *node);
 
 /*
 **					./added/
@@ -96,25 +89,53 @@ char				*ft_append(char *s1, const char *s2);
 size_t				ft_array_size(const char **array);
 char				**ft_arraydup(const char **array, size_t size);
 double				ft_atod(const char *str);
-int					ft_charsearch(const char c, const char *set);
 size_t				ft_counter(const char *s, const char *set);
-int					ft_free_array(void **array, size_t i);
-int					ft_free_ret_int(void *ptr, int ret);
-void				*ft_free_ret_ptr(void *ptr, void *ret);
+void				*ft_free_ptr(void *ptr);
+char				**ft_free_char(char **array, size_t i);
 int					ft_free(void *ptr);
+int					ft_free_int(void *ptr, int ret);
+int					ft_free_array(void **array, size_t i);
 int					ft_getline(int fd, char **line);
 int					ft_iswhitespace(int c);
 void				ft_print_array(char **array);
 char				**ft_realloc(char **src, const char *line, size_t *size);
-char				**ft_split_multi(const char *src, char *sep, size_t *size);
+char				*ft_replace
+						(char *s1, const char *s2, char *ptr, size_t ptr_len);
+char				**ft_split_set(const char *s, const char *set, size_t *size);
 void				ft_str_to_lower(char *str);
 void				ft_str_to_upper(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
-char				*ft_replace
-					(char *s1, const char *s2, char *ptr, size_t ptr_len);
 char				*ft_strxjoin(const char *src, ...);
 size_t				ft_substrlen(const char *str, const char *set);
 void    			ft_swap(void *a, void *b, size_t size_of_data_type);
 int					get_next_line(int fd, char **line);
+
+typedef struct		s_node
+{
+	void			*content;
+	struct s_node	*prev;
+	struct s_node	*next;
+}					t_node;
+
+void				ft_node_add_back(t_node **head, t_node *new);
+void				ft_node_add_front(t_node **head, t_node *new);
+void				ft_node_del_all(t_node **head, void (*del)(void *));
+void				ft_node_del_one(t_node *node, void (*del)(void *));
+t_node				*ft_node_find(t_node *node, void *data_ref, int (*cmp)());
+void				ft_node_insert_after(t_node *node, t_node *after_this);
+void				ft_node_insert_before(t_node **head, t_node *node, t_node *before_this);
+void				ft_node_insert_sort(t_node **head, t_node *node, int (*cmp)());
+int					ft_node_is_sorted(t_node **head, int (*cmp)());
+void				ft_node_iter(t_node *node, void (*f)(void *));
+void				ft_node_join(t_node *list_1_back, t_node *list_2_start);
+t_node				*ft_node_last(t_node *node);
+void				ft_node_merge(t_node **head, t_node *right, int (*cmp)());
+t_node				*ft_node_new(void *content);
+t_node				*ft_node_number(t_node *node, size_t number);
+void				ft_node_remove_one(t_node **head, t_node *node, void (*del)(void *));
+size_t				ft_node_size(t_node *node);
+void				ft_node_sort(t_node **head, int (*cmp)());
+void				ft_node_unlink(t_node **head, t_node *node);
+void				ft_print_node_list(t_node *node);
 
 #endif

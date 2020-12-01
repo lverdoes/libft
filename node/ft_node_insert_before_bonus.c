@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_insert_before_bonus.c                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/27 23:35:52 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 20:47:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
+void	ft_node_insert_before(t_node **head, t_node *node, t_node *before_this)
 {
-	char	**dst;
-	size_t	i;
-
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
+	if (before_this == *head)
 	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
+		ft_node_add_front(head, node);
+		return ;
 	}
-	return (dst);
+	node->prev = before_this->prev;
+	node->next = before_this;
+	before_this->prev = node;
+	node->prev->next = node;	
 }

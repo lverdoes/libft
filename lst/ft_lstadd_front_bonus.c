@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_lstadd_front_bonus.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/29 17:22:25 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/24 17:20:31 by lverdoes      ########   odam.nl         */
+/*   Created: 2019/11/14 18:28:01 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/27 23:32:37 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "../libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	size_t i;
-	size_t j;
-
-	if (!src)
-		return (0);
-	i = 0;
-	j = 0;
-	while (src[j] != '\0')
-	{
-		if (i < dstsize - 1 && dstsize > 0)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		j++;
-	}
-	if (dstsize == 0)
-		return (j);
-	dst[i] = '\0';
-	return (j);
+	new->next = *alst;
+	*alst = new;
 }

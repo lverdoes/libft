@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_front_bonus.c                            :+:    :+:            */
+/*   ft_node_size_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/14 18:28:01 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 21:39:02 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/28 00:18:35 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 00:21:52 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+size_t	ft_node_size(t_node *node)
 {
-	if (!new)
-		return ;
-	new->next = *alst;
-	*alst = new;
+	size_t ret;
+
+	ret = 0;
+	while (node)
+	{
+		node = node->next;
+		ret++;
+	}
+	return (ret);
 }

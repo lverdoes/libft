@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/04 15:51:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/06 23:32:34 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/01 11:54:48 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*reset_ptr(char **str, int fd)
 	i = ft_substrlen(str[fd], "\n");
 	dst = ft_substr(str[fd], 0, i);
 	if (!dst)
-		return (ft_free_ret_ptr(str[fd], NULL));
+		return (ft_free_ptr(str[fd]));
 	tmp = str[fd];
 	str[fd] = ft_strdup(str[fd] + i + 1);
 	ft_free(tmp);
@@ -37,7 +37,7 @@ static int	read_file(int fd, char **str)
 
 	ret = read(fd, buffer, BUFFER_SIZE);
 	if (ret < 0)
-		return (ft_free_ret_int(str[fd], -1));
+		return (ft_free_int(str[fd], -1));
 	buffer[ret] = '\0';
 	str[fd] = ft_append(str[fd], buffer);
 	if (!str[fd])
@@ -55,7 +55,7 @@ int			get_next_line(int fd, char **line)
 	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE < 1 || !line)
 		return (-1);
 	if (!str[fd])
-		str[fd] = ft_strdup("\0");
+		str[fd] = ft_strdup("");
 	if (!str[fd])
 		return (-1);
 	ret = 1;

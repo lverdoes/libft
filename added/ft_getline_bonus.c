@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/14 22:45:17 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/09/22 11:54:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/01 11:34:48 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	read_file(int fd, char **line, char *buffer)
 			return (-1);
 	}
 	else if (ret < 0)
-		return (ft_free_ret_int(line, -1));
+		return (ft_free_int(line, -1));
 	return (ret);
 }
 

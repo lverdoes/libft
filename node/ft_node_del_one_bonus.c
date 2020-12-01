@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arraydup_bonus.c                                :+:    :+:            */
+/*   ft_node_del_one_bonus.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 11:44:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/27 23:35:33 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/11/28 19:35:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
-{
-	char	**dst;
-	size_t	i;
+/*
+**	Delete one node from memory and set it to NULL.
+**	This does not unlink the node cleanly from the list. 
+*/
 
-	if (!array)
-		return (NULL);
-	dst = ft_calloc((size + 1), sizeof(char *));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < size && array[i] != NULL)
-	{
-		dst[i] = ft_strdup(array[i]);
-		if (!dst[i])
-			return (ft_free_char(dst, i));
-		i++;
-	}
-	return (dst);
+void	ft_node_del_one(t_node *node, void (*del)(void *))
+{
+	if (!node)
+		return ;
+	del(node->content);
+	ft_free(node);
+	node = NULL;
 }
