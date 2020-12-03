@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/12/01 12:07:35 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/12/03 01:37:49 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ ADDED =	\
 	/added/ft_array_size_bonus.c \
 	/added/ft_arraydup_bonus.c \
 	/added/ft_atod_bonus.c \
+	/added/ft_atoi_base_bonus.c \
 	/added/ft_counter_bonus.c \
 	/added/ft_free_array_bonus.c \
 	/added/ft_getline_bonus.c \
@@ -72,13 +73,17 @@ ADDED =	\
 	/added/ft_print_array_bonus.c \
 	/added/ft_realloc_bonus.c \
 	/added/ft_replace_bonus.c \
+	/added/ft_sort_ints_bonus.c \
 	/added/ft_split_set_bonus.c \
+	/added/ft_str_contains_bonus.c \
+	/added/ft_str_contains_not_bonus.c \
 	/added/ft_str_to_lower_bonus.c \
 	/added/ft_str_to_upper_bonus.c \
 	/added/ft_strcmp_bonus.c \
 	/added/ft_strxjoin_bonus.c \
 	/added/ft_substrlen_bonus.c \
 	/added/ft_swap_bonus.c \
+	/added/ft_unique_chars_bonus.c \
 	/added/get_next_line_bonus.c
 
 NODE = \
@@ -107,6 +112,8 @@ OBJ = $(addprefix obj, $(MANDATORY:.c=.o) $(LST:.c=.o) $(ADDED:.c=.o) $(NODE:.c=
 
 CC = gcc -Wall -Wextra -Werror
 
+UNUSED = -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
+
 HEADERS = libft.h
 
 IGNORE = .gitignore
@@ -127,6 +134,7 @@ norm:
 ignore:
 	@echo $(NAME) > $(IGNORE)
 	@echo .DS_Store >> $(IGNORE)
+	@echo input >> $(IGNORE)
 	@echo *.o >> $(IGNORE)
 	@echo **/obj >> $(IGNORE)
 	@echo a.out  >> $(IGNORE)
@@ -147,3 +155,6 @@ fclean: clean
 	@/bin/rm -f *.a
 
 re: fclean all
+
+main: all
+	$(CC) $(UNUSED) $(NAME) main.c && ./a.out input

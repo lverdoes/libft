@@ -1,5 +1,6 @@
 libft.a
 .DS_Store
+input
 *.o
 **/obj
 a.out

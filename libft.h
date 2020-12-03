@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/01 12:03:59 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/03 01:38:13 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char				*ft_append(char *s1, const char *s2);
 size_t				ft_array_size(const char **array);
 char				**ft_arraydup(const char **array, size_t size);
 double				ft_atod(const char *str);
+int					ft_atoi_base(const char *str, const char *base);
 size_t				ft_counter(const char *s, const char *set);
 void				*ft_free_ptr(void *ptr);
 char				**ft_free_char(char **array, size_t i);
@@ -101,13 +102,17 @@ void				ft_print_array(char **array);
 char				**ft_realloc(char **src, const char *line, size_t *size);
 char				*ft_replace
 						(char *s1, const char *s2, char *ptr, size_t ptr_len);
+void				sort_int_array(int *array, size_t len);
 char				**ft_split_set(const char *s, const char *set, size_t *size);
+int					ft_str_contains(const char *str, const char *set);
+int					ft_str_contains_not(const char *str, const char *set);
 void				ft_str_to_lower(char *str);
 void				ft_str_to_upper(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strxjoin(const char *src, ...);
 size_t				ft_substrlen(const char *str, const char *set);
 void    			ft_swap(void *a, void *b, size_t size_of_data_type);
+int					ft_unique_chars(const char *str);
 int					get_next_line(int fd, char **line);
 
 typedef struct		s_node
