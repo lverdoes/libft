@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 01:38:13 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/03 13:24:44 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ char				**ft_arraydup(const char **array, size_t size);
 double				ft_atod(const char *str);
 int					ft_atoi_base(const char *str, const char *base);
 size_t				ft_counter(const char *s, const char *set);
+char				*ft_file_to_str(const char *filename);
 void				*ft_free_ptr(void *ptr);
 char				**ft_free_char(char **array, size_t i);
 int					ft_free(void *ptr);

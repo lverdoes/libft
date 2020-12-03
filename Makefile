@@ -6,7 +6,7 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/12/03 01:37:49 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/12/03 13:24:35 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ ADDED =	\
 	/added/ft_atod_bonus.c \
 	/added/ft_atoi_base_bonus.c \
 	/added/ft_counter_bonus.c \
+	/added/ft_file_to_str_bonus.c \
 	/added/ft_free_array_bonus.c \
 	/added/ft_getline_bonus.c \
 	/added/ft_iswhitespace_bonus.c \
