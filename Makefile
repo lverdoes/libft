@@ -6,148 +6,140 @@
 #    By: lverdoes <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/22 17:32:04 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/12/03 13:24:35 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/12/03 16:02:46 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libft.a
+MANDATORY_SRC	= $(addprefix /mandatory, $(MANDATORY))
+LST_SRC 		= $(addprefix /lst, $(LST))
+NODE_SRC 		= $(addprefix /node, $(NODE))
+ADDED_SRC 		= $(addprefix /added, $(ADDED))
 
 MANDATORY =	\
-	/mandatory/ft_memset.c \
-	/mandatory/ft_bzero.c \
-	/mandatory/ft_memcpy.c \
-	/mandatory/ft_memccpy.c \
-	/mandatory/ft_memmove.c \
-	/mandatory/ft_memchr.c \
-	/mandatory/ft_memcmp.c \
-	/mandatory/ft_strlen.c \
-	/mandatory/ft_strlcpy.c \
-	/mandatory/ft_strlcat.c \
-	/mandatory/ft_strchr.c \
-	/mandatory/ft_strrchr.c \
-	/mandatory/ft_strnstr.c \
-	/mandatory/ft_strncmp.c \
-	/mandatory/ft_atoi.c \
-	/mandatory/ft_isalpha.c \
-	/mandatory/ft_isdigit.c \
-	/mandatory/ft_isalnum.c \
-	/mandatory/ft_isascii.c \
-	/mandatory/ft_isprint.c \
-	/mandatory/ft_toupper.c \
-	/mandatory/ft_tolower.c \
-	/mandatory/ft_calloc.c \
-	/mandatory/ft_strdup.c \
-	/mandatory/ft_substr.c \
-	/mandatory/ft_strjoin.c \
-	/mandatory/ft_strtrim.c \
-	/mandatory/ft_split.c \
-	/mandatory/ft_itoa.c \
-	/mandatory/ft_strmapi.c \
-	/mandatory/ft_putchar_fd.c \
-	/mandatory/ft_putstr_fd.c \
-	/mandatory/ft_putendl_fd.c \
-	/mandatory/ft_putnbr_fd.c
+	/ft_memset.c \
+	/ft_bzero.c \
+	/ft_memcpy.c \
+	/ft_memccpy.c \
+	/ft_memmove.c \
+	/ft_memchr.c \
+	/ft_memcmp.c \
+	/ft_strlen.c \
+	/ft_strlcpy.c \
+	/ft_strlcat.c \
+	/ft_strchr.c \
+	/ft_strrchr.c \
+	/ft_strnstr.c \
+	/ft_strncmp.c \
+	/ft_atoi.c \
+	/ft_isalpha.c \
+	/ft_isdigit.c \
+	/ft_isalnum.c \
+	/ft_isascii.c \
+	/ft_isprint.c \
+	/ft_toupper.c \
+	/ft_tolower.c \
+	/ft_calloc.c \
+	/ft_strdup.c \
+	/ft_substr.c \
+	/ft_strjoin.c \
+	/ft_strtrim.c \
+	/ft_split.c \
+	/ft_itoa.c \
+	/ft_strmapi.c \
+	/ft_putchar_fd.c \
+	/ft_putstr_fd.c \
+	/ft_putendl_fd.c \
+	/ft_putnbr_fd.c
 
 LST = \
-	/lst/ft_lstadd_back_bonus.c \
-	/lst/ft_lstadd_front_bonus.c \
-	/lst/ft_lstclear_bonus.c \
-	/lst/ft_lstdelone_bonus.c \
-	/lst/ft_lstfind_bonus.c \
-	/lst/ft_lstiter_bonus.c \
-	/lst/ft_lstlast_bonus.c \
-	/lst/ft_lstmap_bonus.c \
-	/lst/ft_lstnew_bonus.c \
-	/lst/ft_lstsize_bonus.c \
+	/ft_lstadd_back_bonus.c \
+	/ft_lstadd_front_bonus.c \
+	/ft_lstclear_bonus.c \
+	/ft_lstdelone_bonus.c \
+	/ft_lstfind_bonus.c \
+	/ft_lstiter_bonus.c \
+	/ft_lstlast_bonus.c \
+	/ft_lstmap_bonus.c \
+	/ft_lstnew_bonus.c \
+	/ft_lstsize_bonus.c \
 
 ADDED =	\
-	/added/ft_append_bonus.c \
-	/added/ft_array_size_bonus.c \
-	/added/ft_arraydup_bonus.c \
-	/added/ft_atod_bonus.c \
-	/added/ft_atoi_base_bonus.c \
-	/added/ft_counter_bonus.c \
-	/added/ft_file_to_str_bonus.c \
-	/added/ft_free_array_bonus.c \
-	/added/ft_getline_bonus.c \
-	/added/ft_iswhitespace_bonus.c \
-	/added/ft_print_array_bonus.c \
-	/added/ft_realloc_bonus.c \
-	/added/ft_replace_bonus.c \
-	/added/ft_sort_ints_bonus.c \
-	/added/ft_split_set_bonus.c \
-	/added/ft_str_contains_bonus.c \
-	/added/ft_str_contains_not_bonus.c \
-	/added/ft_str_to_lower_bonus.c \
-	/added/ft_str_to_upper_bonus.c \
-	/added/ft_strcmp_bonus.c \
-	/added/ft_strxjoin_bonus.c \
-	/added/ft_substrlen_bonus.c \
-	/added/ft_swap_bonus.c \
-	/added/ft_unique_chars_bonus.c \
-	/added/get_next_line_bonus.c
+	/ft_append_bonus.c \
+	/ft_array_size_bonus.c \
+	/ft_arraydup_bonus.c \
+	/ft_atod_bonus.c \
+	/ft_atoi_base_bonus.c \
+	/ft_counter_bonus.c \
+	/ft_file_to_str_bonus.c \
+	/ft_free_array_bonus.c \
+	/ft_getline_bonus.c \
+	/ft_iswhitespace_bonus.c \
+	/ft_print_array_bonus.c \
+	/ft_realloc_bonus.c \
+	/ft_replace_bonus.c \
+	/ft_sort_ints_bonus.c \
+	/ft_split_set_bonus.c \
+	/ft_str_contains_bonus.c \
+	/ft_str_contains_not_bonus.c \
+	/ft_str_to_lower_bonus.c \
+	/ft_str_to_upper_bonus.c \
+	/ft_strcmp_bonus.c \
+	/ft_strxjoin_bonus.c \
+	/ft_substrlen_bonus.c \
+	/ft_swap_bonus.c \
+	/ft_unique_chars_bonus.c \
+	/get_next_line_bonus.c
 
 NODE = \
-	/node/ft_node_add_back_bonus.c \
-	/node/ft_node_add_front_bonus.c \
-	/node/ft_node_del_all_bonus.c \
-	/node/ft_node_del_one_bonus.c \
-	/node/ft_node_find_bonus.c \
-	/node/ft_node_insert_after_bonus.c \
-	/node/ft_node_insert_before_bonus.c \
-	/node/ft_node_insert_sort_bonus.c \
-	/node/ft_node_is_sorted_bonus.c \
-	/node/ft_node_iter_bonus.c \
-	/node/ft_node_join_bonus.c \
-	/node/ft_node_last_bonus.c \
-	/node/ft_node_merge_bonus.c \
-	/node/ft_node_new_bonus.c \
-	/node/ft_node_number_bonus.c \
-	/node/ft_node_remove_one_bonus.c \
-	/node/ft_node_size_bonus.c \
-	/node/ft_node_sort_bonus.c \
-	/node/ft_node_unlink_bonus.c \
-	/node/ft_print_node_list_bonus.c
+	/ft_node_add_back_bonus.c \
+	/ft_node_add_front_bonus.c \
+	/ft_node_del_all_bonus.c \
+	/ft_node_del_one_bonus.c \
+	/ft_node_find_bonus.c \
+	/ft_node_insert_after_bonus.c \
+	/ft_node_insert_before_bonus.c \
+	/ft_node_insert_sort_bonus.c \
+	/ft_node_is_sorted_bonus.c \
+	/ft_node_iter_bonus.c \
+	/ft_node_join_bonus.c \
+	/ft_node_last_bonus.c \
+	/ft_node_merge_bonus.c \
+	/ft_node_new_bonus.c \
+	/ft_node_number_bonus.c \
+	/ft_node_remove_one_bonus.c \
+	/ft_node_size_bonus.c \
+	/ft_node_sort_bonus.c \
+	/ft_node_unlink_bonus.c \
+	/ft_print_node_list_bonus.c
 
-OBJ = $(addprefix obj, $(MANDATORY:.c=.o) $(LST:.c=.o) $(ADDED:.c=.o) $(NODE:.c=.o))
-
-CC = gcc -Wall -Wextra -Werror
-
-UNUSED = -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
-
+NAME = libft.a
 HEADERS = libft.h
 
-IGNORE = .gitignore
+SRC	= $(addprefix src, $(MANDATORY_SRC) $(LST_SRC) $(NODE_SRC) $(ADDED_SRC))
+OBJ = $(SRC:src/%.c=obj/%.o)
+
+CC		= gcc
+FLAGS	= -Wall -Wextra -Werror
+UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $?
 
-obj/%.o: %.c
+obj/%.o: src/%.c
 	@mkdir -p obj obj/mandatory obj/lst obj/added obj/node
-	$(CC) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 norm:
 	@norminette $(addprefix ., $(MANDATORY) $(LST) $(ADDED) $(NODE)) 
 	@norminette $(HEADERS) Makefile
 
-ignore:
-	@echo $(NAME) > $(IGNORE)
-	@echo .DS_Store >> $(IGNORE)
-	@echo input >> $(IGNORE)
-	@echo *.o >> $(IGNORE)
-	@echo **/obj >> $(IGNORE)
-	@echo a.out  >> $(IGNORE)
-	@echo main.c >> $(IGNORE)
-	@echo *.txt >> $(IGNORE)
-
 .PHONY:	clean fclean re
 
 clean:
 	@/bin/rm -f $(OBJ)
-	@/bin/rm -f *~
-	@/bin/rm -f *.o
+	@/bin/rm -f */*/*.o
 	@/bin/rm -f .DS_Store
 	@/bin/rm -f a.out
 
@@ -158,4 +150,4 @@ fclean: clean
 re: fclean all
 
 main: all
-	$(CC) $(UNUSED) $(NAME) main.c && ./a.out input
+	$(CC) $(UNUSED) $(NAME) main.c && ./a.out
