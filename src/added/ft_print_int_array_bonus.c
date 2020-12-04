@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_node_list_bonus.c                         :+:    :+:            */
+/*   ft_print_int_array_bonus.c                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/01 08:06:50 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/04 13:22:33 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/03 18:05:22 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/03 18:19:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
-
-/*
-**	Example:	ft_print_node_list(head, ft_putstr_fd);
-*/
 
 static size_t	get_magnitude(size_t num)
 {
@@ -46,22 +42,22 @@ static void	put_indentation_space(size_t i, size_t len)
 	}
 }
 
-void	ft_print_node_list(t_node *node, void (*print)())
+void	ft_print_int_array(int *array, size_t size)
 {
-	size_t len;
 	size_t i;
 
-	len = ft_node_size(node);
+	if (size == 0)
+		return ;
 	i = 0;
-	while (node)
+	while (i < size)
 	{
 		ft_putchar_fd('[', 1);
-		put_indentation_space(i, len);
+		put_indentation_space(i, size);
 		ft_putnbr_fd((int)i, 1);
-		ft_putstr_fd("] [", 1);
-		print(node->content, 1);
+		ft_putstr_fd("] ", 1);
+		ft_putchar_fd('[', 1);
+		ft_putnbr_fd(array[i], 1);
 		ft_putendl_fd("] ", 1);
 		i++;
-		node = node->next;
 	}
 }

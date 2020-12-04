@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 13:24:44 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/04 13:19:23 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,13 @@ int					ft_free_array(void **array, size_t i);
 int					ft_getline(int fd, char **line);
 int					ft_iswhitespace(int c);
 void				ft_print_array(char **array);
+void				ft_print_int_array(int *array, size_t size);
 char				**ft_realloc(char **src, const char *line, size_t *size);
 char				*ft_replace
 						(char *s1, const char *s2, char *ptr, size_t ptr_len);
-void				sort_int_array(int *array, size_t len);
-char				**ft_split_set(const char *s, const char *set, size_t *size);
+void				ft_sort_ints(int *array, size_t len);
+char				**ft_split_strchr(const char *s, const char *set, size_t *size);
+char				**ft_split_strnstr(const char *src, const char *set, size_t *size);
 int					ft_str_contains(const char *str, const char *set);
 int					ft_str_contains_not(const char *str, const char *set);
 void				ft_str_to_lower(char *str);
@@ -115,6 +117,10 @@ size_t				ft_substrlen(const char *str, const char *set);
 void    			ft_swap(void *a, void *b, size_t size_of_data_type);
 int					ft_unique_chars(const char *str);
 int					get_next_line(int fd, char **line);
+
+/*
+**					./node/
+*/
 
 typedef struct		s_node
 {
@@ -142,6 +148,7 @@ void				ft_node_remove_one(t_node **head, t_node *node, void (*del)(void *));
 size_t				ft_node_size(t_node *node);
 void				ft_node_sort(t_node **head, int (*cmp)());
 void				ft_node_unlink(t_node **head, t_node *node);
-void				ft_print_node_list(t_node *node);
+//void				ft_print_node_list(t_node *node);
+void				ft_print_node_list(t_node *node, void (*print)());
 
 #endif

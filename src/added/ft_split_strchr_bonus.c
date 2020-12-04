@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_split_set_bonus.c                               :+:    :+:            */
+/*   ft_split_strchr_bonus.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 08:58:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 14:41:23 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/04 13:11:39 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int		init_dst(char **dst, const char *s, const char *set, size_t size)
 	return (1);
 }
 
-char			**ft_split_set(const char *s, const char *set, size_t *size)
+char			**ft_split_strchr(const char *s, const char *set, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;
