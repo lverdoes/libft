@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/01 08:06:50 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/04 13:22:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/04 19:29:35 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,8 @@ void	ft_print_node_list(t_node *node, void (*print)())
 		ft_putchar_fd('[', 1);
 		put_indentation_space(i, len);
 		ft_putnbr_fd((int)i, 1);
-		ft_putstr_fd("] [", 1);
+		ft_putendl_fd("]", 1);
 		print(node->content, 1);
-		ft_putendl_fd("] ", 1);
 		i++;
 		node = node->next;
 	}

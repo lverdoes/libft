@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
+/*   ft_str_contains_only_bonus.c                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/14 16:57:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/09 14:08:51 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/03 01:09:33 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/15 12:17:35 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_str_contains_only(const char *str, const char *set)
 {
-	t_list *tmp;
+	size_t i;
 
-	if (!lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(tmp, del);
+		if (!ft_strchr(set, str[i]))
+			return (0);
+		i++;
 	}
-	*lst = NULL;
+	return (1);
 }

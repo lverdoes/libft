@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/03 01:13:36 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 14:41:23 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/15 12:18:30 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int				ft_atoi_base(const char *str, const char *base)
  	while (ft_iswhitespace(str[i]))
  		i++;
 	neg = check_sign(str, &i);
-	if (!ft_str_contains(str + i, base))
+	if (!ft_str_contains_only(str + i, base))
 		return (0);
 	result = 0;
 	while (str[i] != '\0')

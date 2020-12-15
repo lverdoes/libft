@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/27 23:36:17 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 14:41:23 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/09 14:08:54 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_node_del_all(t_node **head, void (*del)(void *))
 	{
 		tmp = *head;
 		*head = (*head)->next;
-		ft_node_del_one(tmp, *del);
+		ft_node_del_one(tmp, del);
 	}
+	*head = NULL;
 }

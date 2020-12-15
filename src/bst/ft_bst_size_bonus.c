@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_sort_ints_bonus.c                               :+:    :+:            */
+/*   ft_bst_size_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/02 07:18:11 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 21:24:31 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/09 14:44:20 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/09 15:54:02 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-void	ft_sort_ints(int *array, size_t len)
+static size_t	count_nodes(t_bst *node, size_t ret)
 {
-	size_t i;
-	size_t j;
+	if (!node)
+		return (ret);
+	ret++;
+	ret = count_nodes(node->left, ret);
+	ret = count_nodes(node->right, ret);
+	return (ret);
+}
 
-	i = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (j < len)
-		{
-			if (array[i] < array[j])
-				ft_swap(array + i, array + j, sizeof(int));
-			j++;
-		}
-		i++;
-	}
+size_t  		ft_bst_size(t_bst *node)
+{
+	return (count_nodes(node, 0));
 }

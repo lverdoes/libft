@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
+/*   ft_bst_del_all_bonus.c                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/14 16:57:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/09 14:08:51 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/09 12:28:22 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/09 14:17:11 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_bst_del_all(t_bst **head, void (*del)(void *))
 {
-	t_list *tmp;
-
-	if (!lst)
+	t_bst *tmp;
+	
+	if (!*head)
 		return ;
-	while (*lst)
-	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(tmp, del);
-	}
-	*lst = NULL;
+	tmp = *head;
+	ft_bst_del_all(&tmp->left, del);
+	ft_bst_del_all(&tmp->right, del);
+	ft_bst_del_one(*head, *del);
+	*head = NULL;
 }

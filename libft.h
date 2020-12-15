@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/04 13:19:23 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/15 12:19:43 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # endif
 
 # include <stddef.h>
+#                   include <stdio.h>
 
 /*
 **					./mandatory/
@@ -90,6 +91,7 @@ size_t				ft_array_size(const char **array);
 char				**ft_arraydup(const char **array, size_t size);
 double				ft_atod(const char *str);
 int					ft_atoi_base(const char *str, const char *base);
+char				*ft_concat_array(const char **array, char *delim);
 size_t				ft_counter(const char *s, const char *set);
 char				*ft_file_to_str(const char *filename);
 void				*ft_free_ptr(void *ptr);
@@ -104,11 +106,12 @@ void				ft_print_int_array(int *array, size_t size);
 char				**ft_realloc(char **src, const char *line, size_t *size);
 char				*ft_replace
 						(char *s1, const char *s2, char *ptr, size_t ptr_len);
-void				ft_sort_ints(int *array, size_t len);
+void				ft_sort_int(int *array, size_t len);
+void				ft_sort_str(char **array);
 char				**ft_split_strchr(const char *s, const char *set, size_t *size);
 char				**ft_split_strnstr(const char *src, const char *set, size_t *size);
-int					ft_str_contains(const char *str, const char *set);
-int					ft_str_contains_not(const char *str, const char *set);
+int					ft_str_contains_only(const char *str, const char *set);
+int					ft_str_contains_none(const char *str, const char *set);
 void				ft_str_to_lower(char *str);
 void				ft_str_to_upper(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -148,7 +151,26 @@ void				ft_node_remove_one(t_node **head, t_node *node, void (*del)(void *));
 size_t				ft_node_size(t_node *node);
 void				ft_node_sort(t_node **head, int (*cmp)());
 void				ft_node_unlink(t_node **head, t_node *node);
-//void				ft_print_node_list(t_node *node);
 void				ft_print_node_list(t_node *node, void (*print)());
+
+/*
+**					./bst/
+*/
+
+typedef struct		s_bst
+{
+	void			*content;
+	int				num;
+	struct s_bst	*left;
+	struct s_bst	*right;
+	struct s_bst	*prev;
+}					t_bst;
+
+void				ft_print_bst(t_bst *node, void (*print)());
+t_bst				*ft_bst_new(void *content, int num);
+void				ft_bst_add(t_bst **head, t_bst *new, int (*cmp)());
+void				ft_bst_del_one(t_bst *node, void (*del)(void *));
+void				ft_bst_del_all(t_bst **head, void (*del)(void *));
+size_t				ft_bst_size(t_bst *node);
 
 #endif

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_str_contains_bonus.c                            :+:    :+:            */
+/*   ft_bst_new_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:09:33 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/03 14:41:23 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/09 12:20:01 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/09 12:20:19 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int	ft_str_contains(const char *str, const char *set)
+t_bst	*ft_bst_new(void *content, int num)
 {
-	size_t i;
+	t_bst *new;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!ft_strchr(set, str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
+	new = ft_calloc(1, sizeof(t_bst));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->num = num;
+	new->left = NULL;
+	new->right = NULL;
+	new->prev = NULL;
+	return (new);
 }

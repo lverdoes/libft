@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/12/04 13:12:37 by lverdoes      ########   odam.nl          #
+#    Updated: 2020/12/15 12:19:23 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,14 @@ MANDATORY =	\
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
+BST = \
+	ft_print_bst_bonus.c \
+	ft_bst_add_bonus.c \
+	ft_bst_del_all_bonus.c \
+	ft_bst_del_one_bonus.c \
+	ft_bst_new_bonus.c \
+	ft_bst_size_bonus.c
+
 LST = \
 	ft_lstadd_back_bonus.c \
 	ft_lstadd_front_bonus.c \
@@ -70,6 +78,7 @@ ADDED =	\
 	ft_arraydup_bonus.c \
 	ft_atod_bonus.c \
 	ft_atoi_base_bonus.c \
+	ft_concat_array_bonus.c \
 	ft_counter_bonus.c \
 	ft_file_to_str_bonus.c \
 	ft_free_array_bonus.c \
@@ -79,11 +88,12 @@ ADDED =	\
 	ft_print_int_array_bonus.c \
 	ft_realloc_bonus.c \
 	ft_replace_bonus.c \
-	ft_sort_ints_bonus.c \
+	ft_sort_int_bonus.c \
+	ft_sort_str_bonus.c \
 	ft_split_strchr_bonus.c \
 	ft_split_strnstr_bonus.c \
-	ft_str_contains_bonus.c \
-	ft_str_contains_not_bonus.c \
+	ft_str_contains_none_bonus.c \
+	ft_str_contains_only_bonus.c \
 	ft_str_to_lower_bonus.c \
 	ft_str_to_upper_bonus.c \
 	ft_strcmp_bonus.c \
@@ -115,16 +125,17 @@ NODE = \
 	ft_node_unlink_bonus.c \
 	ft_print_node_list_bonus.c
 
-
 SRC_DIRS = \
 	$(addprefix added/, $(ADDED)) \
 	$(addprefix lst/, $(LST)) \
 	$(addprefix mandatory/, $(MANDATORY)) \
-	$(addprefix node/, $(NODE))
+	$(addprefix node/, $(NODE)) \
+	$(addprefix bst/, $(BST))
 
 OBJ_DIRS = \
 	obj \
 	obj/added \
+	obj/bst \
 	obj/lst \
 	obj/mandatory \
 	obj/node
@@ -152,10 +163,12 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f *.a
+	@/bin/rm -rf $(OBJ_DIRS)
 
 re: fclean all
 
 lib_new:
+	mkdir -p ../libft
 	cp ~/repositories/libft/Makefile ../libft
 	cp ~/repositories/libft/libft.h ../libft
 	cp -R ~/repositories/libft/src ../libft

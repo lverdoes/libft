@@ -6,27 +6,27 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 08:58:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/04 13:11:39 by lverdoes      ########   odam.nl         */
+/*   Updated: 2020/12/08 16:35:15 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-static size_t	get_start(const char *s, const char *set, size_t i)
+static size_t	get_start(const char *src, const char *set, size_t i)
 {
-	while (s[i] != '\0' && ft_strchr(set, s[i]))
+	while (src[i] != '\0' && ft_strchr(set, src[i]))
 		i++;
 	return (i);
 }
 
-static size_t	get_len(const char *s, const char *set, size_t start)
+static size_t	get_len(const char *src, const char *set, size_t start)
 {
 	size_t i;
 	size_t len;
 
 	i = start;
 	len = 0;
-	while (s[i] != '\0' && !ft_strchr(set, s[i]))
+	while (src[i] != '\0' && !ft_strchr(set, src[i]))
 	{
 		i++;
 		len++;
@@ -34,30 +34,30 @@ static size_t	get_len(const char *s, const char *set, size_t start)
 	return (len);
 }
 
-static size_t	count_strings(const char *s, const char *set)
+static size_t	count_strings(const char *src, const char *set)
 {
 	size_t i;
 	size_t count;
 
 	i = 0;
 	count = 0;
-	if (ft_strlen(set) == 0 && s[i] != '\0')
+	if (ft_strlen(set) == 0 && src[i] != '\0')
 		return (1);
-	while (s[i] != '\0')
+	while (src[i] != '\0')
 	{
-		if (!ft_strchr(set, s[i]))
+		if (!ft_strchr(set, src[i]))
 		{
 			count++;
-			while (!ft_strchr(set, s[i]) && s[i] != '\0')
+			while (!ft_strchr(set, src[i]) && src[i] != '\0')
 				i++;
 		}
-		while (ft_strchr(set, s[i]))
+		while (ft_strchr(set, src[i]))
 			i++;
 	}
 	return (count);
 }
 
-static int		init_dst(char **dst, const char *s, const char *set, size_t size)
+static int		init_dst(char **dst, const char *src, const char *set, size_t size)
 {
 	size_t i;
 	size_t start;
@@ -68,9 +68,9 @@ static int		init_dst(char **dst, const char *s, const char *set, size_t size)
 	len = 0;
 	while (i < size)
 	{
-		start = get_start(s, set, start + len);
-		len = get_len(s, set, start);
-		dst[i] = ft_substr(s, start, len);
+		start = get_start(src, set, start + len);
+		len = get_len(src, set, start);
+		dst[i] = ft_substr(src, start, len);
 		if (!dst[i])
 			return (ft_free_array((void **)dst, i));
 		i++;
@@ -78,18 +78,18 @@ static int		init_dst(char **dst, const char *s, const char *set, size_t size)
 	return (1);
 }
 
-char			**ft_split_strchr(const char *s, const char *set, size_t *size)
+char			**ft_split_strchr(const char *src, const char *set, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;
 
-	if (!s)
+	if (!src)
 		return (NULL);
-	array_size = count_strings(s, set);
+	array_size = count_strings(src, set);
 	dst = ft_calloc((array_size + 1), sizeof(char *));
 	if (!dst)
 		return (NULL);
-	if (!init_dst(dst, s, set, array_size))
+	if (!init_dst(dst, src, set, array_size))
 		return (NULL);
 	if (size)
 		*size = array_size;

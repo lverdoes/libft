@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear_bonus.c                                :+:    :+:            */
+/*   ft_intcmp_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/14 16:57:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/09 14:08:51 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/08 17:31:57 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/08 17:34:10 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
-
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_intcmp(int a, int b)
 {
-	t_list *tmp;
-
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(tmp, del);
-	}
-	*lst = NULL;
+	return (a - b);
 }

@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_node_add_back_bonus.c                           :+:    :+:            */
+/*   ft_bst_add_bonus.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/27 23:27:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/10 00:26:25 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/09 12:18:00 by lverdoes      #+#    #+#                 */
+/*   Updated: 2020/12/15 10:26:46 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
+#include <stdlib.h>
 
-void	ft_node_add_back(t_node **head, t_node *new)
+void	ft_bst_add(t_bst **head, t_bst *new, int (*cmp)())
 {
-	t_node *tmp;
+	t_bst *tmp;
 
-	if (!*head)
-		ft_node_add_front(head, new);
-	else
+	tmp = *head;
+	while (tmp)
 	{
-		tmp = ft_node_last(*head);
-		tmp->next = new;
 		new->prev = tmp;
+		if (cmp(new->content, tmp->content) > 0)
+		{
+			tmp = tmp->right;
+			if (!tmp)
+				new->prev->right = new;
+		}
+		else if (cmp(new->content, tmp->content) < 0)
+		{
+			tmp = tmp->left;
+			if (!tmp)
+				new->prev->left = new;
+		}
+		else
+		{
+			tmp->num += 1;
+			ft_bst_del_one(new, free);
+			return ;
+		}
 	}
 }
