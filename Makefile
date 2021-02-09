@@ -6,14 +6,14 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2020/12/15 12:19:23 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/02/09 13:06:05 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 HEADERS = libft.h
 CC		= gcc
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -pedantic -I.
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 
 MANDATORY =	\
@@ -52,98 +52,102 @@ MANDATORY =	\
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 
-BST = \
-	ft_print_bst_bonus.c \
-	ft_bst_add_bonus.c \
-	ft_bst_del_all_bonus.c \
-	ft_bst_del_one_bonus.c \
-	ft_bst_new_bonus.c \
-	ft_bst_size_bonus.c
-
 LST = \
-	ft_lstadd_back_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstfind_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstmap_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstsize_bonus.c \
+	ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstfind.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c \
 
-ADDED =	\
-	ft_append_bonus.c \
-	ft_array_size_bonus.c \
-	ft_arraydup_bonus.c \
-	ft_atod_bonus.c \
-	ft_atoi_base_bonus.c \
-	ft_concat_array_bonus.c \
-	ft_counter_bonus.c \
-	ft_file_to_str_bonus.c \
-	ft_free_array_bonus.c \
-	ft_getline_bonus.c \
-	ft_iswhitespace_bonus.c \
-	ft_print_array_bonus.c \
-	ft_print_int_array_bonus.c \
-	ft_realloc_bonus.c \
-	ft_replace_bonus.c \
-	ft_sort_int_bonus.c \
-	ft_sort_str_bonus.c \
-	ft_split_strchr_bonus.c \
-	ft_split_strnstr_bonus.c \
-	ft_str_contains_none_bonus.c \
-	ft_str_contains_only_bonus.c \
-	ft_str_to_lower_bonus.c \
-	ft_str_to_upper_bonus.c \
-	ft_strcmp_bonus.c \
-	ft_strxjoin_bonus.c \
-	ft_substrlen_bonus.c \
-	ft_swap_bonus.c \
-	ft_unique_chars_bonus.c \
-	get_next_line_bonus.c
+EXT =	\
+	ft_append.c \
+	ft_array_size.c \
+	ft_arraydup.c \
+	ft_atod.c \
+	ft_atoi_base.c \
+	ft_concat_array.c \
+	ft_counter.c \
+	ft_free_array.c \
+	ft_intdup.c \
+	ft_iswhitespace.c \
+	ft_print_array.c \
+	ft_print_int_array.c \
+	ft_realloc.c \
+	ft_replace.c \
+	ft_split_strchr.c \
+	ft_split_strnstr.c \
+	ft_str_contains_none.c \
+	ft_str_contains_only.c \
+	ft_str_to_lower.c \
+	ft_str_to_upper.c \
+	ft_strcmp.c \
+	ft_strxjoin.c \
+	ft_substrlen.c \
+	ft_swap.c \
+	ft_unique_chars.c
+
+GNL = \
+	ft_file_to_str.c \
+	ft_getline.c \
+	get_next_line.c
+	
 
 NODE = \
-	ft_node_add_back_bonus.c \
-	ft_node_add_front_bonus.c \
-	ft_node_del_all_bonus.c \
-	ft_node_del_one_bonus.c \
-	ft_node_find_bonus.c \
-	ft_node_insert_after_bonus.c \
-	ft_node_insert_before_bonus.c \
-	ft_node_insert_sort_bonus.c \
-	ft_node_is_sorted_bonus.c \
-	ft_node_iter_bonus.c \
-	ft_node_join_bonus.c \
-	ft_node_last_bonus.c \
-	ft_node_merge_bonus.c \
-	ft_node_new_bonus.c \
-	ft_node_number_bonus.c \
-	ft_node_remove_one_bonus.c \
-	ft_node_size_bonus.c \
-	ft_node_sort_bonus.c \
-	ft_node_unlink_bonus.c \
-	ft_print_node_list_bonus.c
+	ft_node_add_back.c \
+	ft_node_add_front.c \
+	ft_node_del_all.c \
+	ft_node_del_one.c \
+	ft_node_dup.c \
+	ft_node_find.c \
+	ft_node_insert_after.c \
+	ft_node_insert_before.c \
+	ft_node_insert_sort.c \
+	ft_node_is_sorted.c \
+	ft_node_iter.c \
+	ft_node_join.c \
+	ft_node_last.c \
+	ft_node_merge.c \
+	ft_node_new.c \
+	ft_node_number.c \
+	ft_node_remove_if.c \
+	ft_node_remove_one.c \
+	ft_node_size.c \
+	ft_node_sort.c \
+	ft_node_unlink.c \
+	ft_print_node_list.c
+
+SORT = \
+	ft_bubble_sort_int.c \
+	ft_bubble_sort_str.c \
+	ft_merge_sort_int.c \
+	ft_merge_sort_str.c
 
 SRC_DIRS = \
-	$(addprefix added/, $(ADDED)) \
-	$(addprefix lst/, $(LST)) \
 	$(addprefix mandatory/, $(MANDATORY)) \
+	$(addprefix ext/, $(EXT)) \
+	$(addprefix gnl/, $(GNL)) \
+	$(addprefix lst/, $(LST)) \
 	$(addprefix node/, $(NODE)) \
-	$(addprefix bst/, $(BST))
+	$(addprefix sort/, $(SORT))
 
 OBJ_DIRS = \
 	obj \
-	obj/added \
-	obj/bst \
-	obj/lst \
 	obj/mandatory \
-	obj/node
+	obj/ext \
+	obj/gnl \
+	obj/lst \
+	obj/node \
+	obj/sort
+
+all: $(NAME)
 
 SRC	= $(addprefix src/, $(SRC_DIRS))
 OBJ = $(SRC:src/%.c=obj/%.o)
-
-all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $?
@@ -156,7 +160,6 @@ obj/%.o: src/%.c
 
 clean:
 	@/bin/rm -f $(OBJ)
-	@/bin/rm -f */*/*.o
 	@/bin/rm -f .DS_Store
 	@/bin/rm -f a.out
 
@@ -167,14 +170,8 @@ fclean: clean
 
 re: fclean all
 
-lib_new:
-	mkdir -p ../libft
-	cp ~/repositories/libft/Makefile ../libft
-	cp ~/repositories/libft/libft.h ../libft
-	cp -R ~/repositories/libft/src ../libft
-
 main: all
-	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c
+	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c utils/*.c
 	./a.out
 
 test: main
