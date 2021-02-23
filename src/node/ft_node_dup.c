@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 11:55:57 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 14:54:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/23 08:37:07 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,15 @@ t_node	*ft_node_dup(t_node *head, void *data_ref, int (*cmp)(), void *(*dup)(voi
 	t_node	*dup_head;
 	void	*dup_content;
 	t_node	*new;
-	t_node	*node;
+	t_node	*tmp;
 
 	dup_head = NULL;
-	node = head;
-	while (node)
+	tmp = head;
+	while (tmp)
 	{
-		if (!cmp(data_ref, node->content))
+		if (!cmp(data_ref, tmp->content))
 		{
-			dup_content = dup(node->content);
+			dup_content = dup(tmp->content);
 			if (!dup_content)
 			{
 				ft_node_del_all(&dup_head, del);
@@ -81,7 +81,7 @@ t_node	*ft_node_dup(t_node *head, void *data_ref, int (*cmp)(), void *(*dup)(voi
 			}
 			ft_node_add_back(&dup_head, new);
 		}
-		node = node->next;
+		tmp = tmp->next;
 	}
 	return (dup_head);
 }

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 00:19:26 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 11:01:42 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/23 08:37:34 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@
 
 t_node	*ft_node_find(t_node *start, void *data_ref, int (*cmp)())
 {
-	while (start)
+	t_node	*tmp;
+
+	tmp = start;
+	while (tmp)
 	{
-		if (!cmp(data_ref, start->content))
-			return (start);
-		start = start->next;
+		if (!cmp(data_ref, tmp->content))
+			return (tmp);
+		tmp = tmp->next;
 	}
 	return (NULL);
 }

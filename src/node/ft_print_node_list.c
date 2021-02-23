@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/01 08:06:50 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 11:47:08 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/23 08:41:02 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,21 @@ static void	put_indentation_space(size_t i, size_t len)
 
 void	ft_print_node_list(t_node *node, void (*print)())
 {
-	size_t len;
-	size_t i;
-
+	size_t	len;
+	size_t	i;
+	t_node	*tmp;
+	
 	len = ft_node_size(node);
 	i = 0;
-	while (node)
+	tmp = node;
+	while (tmp)
 	{
 		ft_putstr_fd("Node nr: [", 1);
 		put_indentation_space(i, len);
 		ft_putnbr_fd((int)i, 1);
 		ft_putendl_fd("]", 1);
-		print(node->content, 1);
+		print(tmp->content, 1);
 		i++;
-		node = node->next;
+		tmp = tmp->next;
 	}
 }
