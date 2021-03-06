@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/06 21:15:19 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 11:12:54 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 **	ft_concat_array is the opposite of ft_split
 */
 
-static char *concat_delim(
-	char *dst, const char **array, char *delim, size_t size)
+static char	*concat_delim(char *dst, char **array, char *dl, size_t size)
 {
 	char	*tmp;
 	size_t	i;
@@ -25,7 +24,7 @@ static char *concat_delim(
 	i = 1;
 	while (i < size)
 	{
-		tmp = ft_strxjoin(dst, delim, array[i], NULL);
+		tmp = ft_strxjoin(dst, dl, array[i], NULL);
 		ft_free(dst);
 		if (!tmp)
 			return (NULL);
@@ -35,8 +34,7 @@ static char *concat_delim(
 	return (dst);
 }
 
-static char *concat_no_delim(
-	char *dst, const char **array, size_t size)
+static char	*concat_no_delim(char *dst, char **array, size_t size)
 {
 	char	*tmp;
 	size_t	i;
@@ -54,7 +52,7 @@ static char *concat_no_delim(
 	return (dst);
 }
 
-char	*ft_concat_array(const char **array, char *delim)
+char	*ft_concat_array(char **array, char *dl)
 {
 	char	*dst;
 	size_t	size;
@@ -63,8 +61,8 @@ char	*ft_concat_array(const char **array, char *delim)
 	dst = ft_strdup(array[0]);
 	if (!dst)
 		return (NULL);
-	if (delim)
-		dst = concat_delim(dst, array, delim, size);
+	if (dl)
+		dst = concat_delim(dst, array, dl, size);
 	else
 		dst = concat_no_delim(dst, array, size);
 	return (dst);

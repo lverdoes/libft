@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/27 23:36:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/03 21:55:13 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	ft_node_unlink(t_node **head, t_node *node)
 	if (!node->prev)
 	{
 		*head = node->next;
-		(*head)->prev = NULL;
+		if (*head)
+			(*head)->prev = NULL;
 	}
 	else if (!node->next)
 	{

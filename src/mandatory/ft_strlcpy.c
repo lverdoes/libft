@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 17:22:25 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/24 17:20:31 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:07:29 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (!src)
 		return (0);

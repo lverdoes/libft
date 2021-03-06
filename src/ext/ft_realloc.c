@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:17:12 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 11:13:39 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	copy_ptrs(char **dst, char **src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -24,12 +24,12 @@ static void	copy_ptrs(char **dst, char **src, size_t size)
 	}
 }
 
-char		**ft_realloc(char **src, const char *line, size_t *size)
+char	**ft_realloc(char **src, const char *line, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;
 
-	array_size = ft_array_size((const char **)src);
+	array_size = ft_array_size(src);
 	dst = ft_calloc(array_size + 2, sizeof(char *));
 	if (!dst)
 		return (ft_free_char(src, array_size));

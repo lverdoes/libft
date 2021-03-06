@@ -6,11 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/14 22:45:17 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/01/25 16:35:56 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:35:35 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 #include <unistd.h>
 
 static int	read_file(int fd, char **line)
@@ -35,7 +36,7 @@ static int	read_file(int fd, char **line)
 	return (ret);
 }
 
-int			ft_getline(int fd, char **line)
+int	ft_getline(int fd, char **line)
 {
 	int		ret;
 

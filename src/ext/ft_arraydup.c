@@ -6,13 +6,13 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 19:14:06 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 10:57:28 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			**ft_arraydup(const char **array, size_t size)
+char	**ft_arraydup(char **array, size_t size)
 {
 	char	**dst;
 	size_t	i;

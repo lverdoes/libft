@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/02 07:18:11 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 21:27:13 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:14:37 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_bubble_sort_int(int *array, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < len)

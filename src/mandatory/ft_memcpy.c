@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/29 09:29:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/11/21 16:55:15 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:08:53 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!dst && !src)

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/02 16:37:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:23:09 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static size_t	get_strlen(const char *s2)
 	return (0);
 }
 
-char			*ft_replace(char *s1, const char *s2, char *ptr, size_t ptr_len)
+char	*ft_replace(char *s1, const char *s2, char *ptr, size_t ptr_len)
 {
 	size_t	s1_len;
 	size_t	s2_len;

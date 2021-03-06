@@ -6,23 +6,22 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 21:29:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/09 11:21:31 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:56:17 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_left_or_right(t_merge *m, size_t i, size_t j)
+static int	get_left_or_right(t_merge *m, size_t i, size_t j)
 {
 	if (j == m->len_r)
 		return (1);
 	if (i < m->len_l && ((int *)m->left)[i] <= ((int *)m->right)[j])
 		return (1);
 	return (0);
-	
 }
 
-static void		merge_arrays(t_merge *m, int *array, size_t start)
+static void	merge_arrays(t_merge *m, int *array, size_t start)
 {
 	size_t	i;
 	size_t	j;
@@ -33,7 +32,7 @@ static void		merge_arrays(t_merge *m, int *array, size_t start)
 	k = start;
 	while (i + j < m->total_len)
 	{
-		if (get_left_or_right(m, i ,j))
+		if (get_left_or_right(m, i, j))
 		{
 			array[k] = ((int *)m->left)[i];
 			i++;
@@ -47,9 +46,9 @@ static void		merge_arrays(t_merge *m, int *array, size_t start)
 	}
 }
 
-static int		init(int *array, size_t start, size_t middle, size_t end)
+static int	init(int *array, size_t start, size_t middle, size_t end)
 {
-	t_merge merge;
+	t_merge	merge;
 
 	merge.array = array;
 	merge.len_l = middle - start + 1;
@@ -67,9 +66,9 @@ static int		init(int *array, size_t start, size_t middle, size_t end)
 	return (1);
 }
 
-static int		divide_array_in_two(int *array, size_t start, size_t end)
+static int	divide_array_in_two(int *array, size_t start, size_t end)
 {
-	size_t middle;
+	size_t	middle;
 
 	middle = start + (end - start) / 2;
 	if (start < end)
@@ -84,7 +83,7 @@ static int		divide_array_in_two(int *array, size_t start, size_t end)
 	return (1);
 }
 
-int				ft_merge_sort_int(int *array, size_t len)
+int	ft_merge_sort_int(int *array, size_t len)
 {
 	if (len < 2)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/21 12:21:44 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/08 15:37:20 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:26:55 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static size_t	get_len(const char *src, va_list list)
 	return (len);
 }
 
-char			*ft_strxjoin(const char *src, ...)
+char	*ft_strxjoin(const char *src, ...)
 {
 	char	*dst;
 	va_list	list;

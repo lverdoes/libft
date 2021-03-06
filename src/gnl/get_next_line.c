@@ -6,17 +6,18 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/04 15:51:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2020/12/17 20:24:21 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:35:57 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 #include <unistd.h>
 
-static int		free_node(t_node **head, t_node *node, int ret)
+static int	free_node(t_node **head, t_node *node, int ret)
 {
-	t_fd *file;
-	
+	t_fd	*file;
+
 	if (node->prev)
 		node->prev->next = node->next;
 	if (node->next)
@@ -32,10 +33,10 @@ static int		free_node(t_node **head, t_node *node, int ret)
 	return (ret);
 }
 
-static char		*reset_ptr(char *str)
+static char	*reset_ptr(char *str)
 {
-	char *next_line_start;
-	char *ptr;
+	char	*next_line_start;
+	char	*ptr;
 
 	ptr = ft_strchr(str, '\n');
 	if (!ptr)
@@ -45,11 +46,11 @@ static char		*reset_ptr(char *str)
 	return (next_line_start);
 }
 
-static int		read_file(int fd, t_fd *file)
+static int	read_file(int fd, t_fd *file)
 {
 	int		ret;
 	char	*buffer;
-	
+
 	buffer = ft_calloc((size_t)BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (-1);
@@ -66,7 +67,7 @@ static int		read_file(int fd, t_fd *file)
 
 static t_node	*find_fd(t_node **head, t_node *node, int fd)
 {
-	t_fd *tmp;
+	t_fd	*tmp;
 
 	while (node)
 	{
@@ -92,7 +93,7 @@ static t_node	*find_fd(t_node **head, t_node *node, int fd)
 	return (node);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static t_node	*head = NULL;
 	int				ret;

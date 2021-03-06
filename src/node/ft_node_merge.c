@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/29 10:12:42 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:37:30 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	add_remaining(t_node *left, t_node *right, t_node *last_sorted)
 
 static void	set_head(t_node **head, t_node **left, t_node **right, int (*cmp)())
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (cmp((*head)->content, (*right)->content) > 0)
 	{
@@ -34,12 +34,12 @@ static void	set_head(t_node **head, t_node **left, t_node **right, int (*cmp)())
 		(*left) = (*left)->next;
 }
 
-void		ft_node_merge(t_node **head, t_node *right, int (*cmp)())
+void	ft_node_merge(t_node **head, t_node *right, int (*cmp)())
 {
-	t_node *left;
-	t_node *tmp;
-	t_node *last_sorted;
-	
+	t_node	*left;
+	t_node	*tmp;
+	t_node	*last_sorted;
+
 	left = *head;
 	set_head(head, &left, &right, cmp);
 	last_sorted = *head;

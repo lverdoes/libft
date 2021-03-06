@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/07 13:57:52 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/01/25 16:42:36 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:25:19 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	unsigned char	*str1;
 	unsigned char	*str2;
 
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
 	while (str1[i] == str2[i] && str1[i] && str2[i])
 		i++;

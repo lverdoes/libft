@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 08:22:37 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:09:43 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static size_t	get_start(char const *str, char c, size_t i)
 
 static size_t	get_len(char const *str, char c, size_t start)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	i = start;
 	len = 0;
@@ -36,8 +36,8 @@ static size_t	get_len(char const *str, char c, size_t start)
 
 static size_t	count_str(char const *str, char c)
 {
-	size_t i;
-	size_t count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -57,11 +57,11 @@ static size_t	count_str(char const *str, char c)
 	return (count);
 }
 
-static char		**init_dst(char const *s, char c, size_t count, char **dst)
+static char	**init_dst(char const *s, char c, size_t count, char **dst)
 {
-	size_t i;
-	size_t start;
-	size_t len;
+	size_t	i;
+	size_t	start;
+	size_t	len;
 
 	i = 0;
 	start = 0;
@@ -86,7 +86,7 @@ static char		**init_dst(char const *s, char c, size_t count, char **dst)
 	return (dst);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	size_t	size;

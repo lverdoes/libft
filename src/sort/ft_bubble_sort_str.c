@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/05 21:10:38 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/06 12:47:56 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 11:14:32 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bubble_sort_str(char **array, size_t *array_size)
 {
-	size_t i;
-	size_t j;
-	size_t size;
+	size_t	i;
+	size_t	j;
+	size_t	size;
 
 	if (!array_size)
-		size = ft_array_size((const char **)array);
+		size = ft_array_size(array);
 	else
 		size = *array_size;
 	if (size < 2)

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 11:55:57 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/23 08:37:07 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:47:25 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,16 @@
 **	will create a new list with only nodes where var->str is equal to "Rigate".
 */
 
-t_node	*ft_node_dup(t_node *head, void *data_ref, int (*cmp)(), void *(*dup)(void *), void (*del)(void *))
+static t_node	*clean_up(t_node *dup_h, t_node *dup_c, void (*del)(void *))
+{
+	if (dup_c)
+		del(dup_c);
+	ft_node_del_all(&dup_h, del);
+	return (NULL);
+}
+
+t_node	*ft_node_dup(t_node *head, void *data_ref, \
+		int (*cmp)(), void *(*dup)(void *), void (*del)(void *))
 {
 	t_node	*dup_head;
 	void	*dup_content;
@@ -68,17 +77,10 @@ t_node	*ft_node_dup(t_node *head, void *data_ref, int (*cmp)(), void *(*dup)(voi
 		{
 			dup_content = dup(tmp->content);
 			if (!dup_content)
-			{
-				ft_node_del_all(&dup_head, del);
-				return (NULL);
-			}
+				return (clean_up(dup_head, dup_content, del));
 			new = ft_node_new(dup_content);
 			if (!new)
-			{
-				del(dup_content);
-				ft_node_del_all(&dup_head, del);
-				return (NULL);
-			}
+				return (clean_up(dup_head, dup_content, del));
 			ft_node_add_back(&dup_head, new);
 		}
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/02/09 13:06:05 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/03/06 11:11:56 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,6 @@ EXT =	\
 	ft_unique_chars.c
 
 GNL = \
-	ft_file_to_str.c \
 	ft_getline.c \
 	get_next_line.c
 	
@@ -164,9 +163,9 @@ clean:
 	@/bin/rm -f a.out
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME)
 	@/bin/rm -f *.a
-	@/bin/rm -rf $(OBJ_DIRS)
+	/bin/rm -rf $(OBJ_DIRS)
 
 re: fclean all
 

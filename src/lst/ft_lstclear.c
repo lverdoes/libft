@@ -6,23 +6,23 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/14 16:57:35 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:31:05 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **alst, void (*del)(void *))
 {
-	t_list *tmp;
+	t_list	*tmp;
 
-	if (!lst)
+	if (!alst)
 		return ;
-	while (*lst)
+	while (*alst)
 	{
-		tmp = *lst;
-		*lst = (*lst)->next;
+		tmp = *alst;
+		*alst = (*alst)->next;
 		ft_lstdelone(tmp, del);
 	}
-	*lst = NULL;
+	*alst = NULL;
 }

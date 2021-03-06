@@ -14,7 +14,7 @@
 
 void	ft_str_to_upper(char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!str)

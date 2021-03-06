@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/04 09:01:25 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 10:42:11 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 static size_t	get_start(const char *src, const char *set, size_t i)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = ft_strnstr(src + i, set, ft_strlen(src));
 	if (!ptr)
 		return (i);
 	if (i == 0 && ptr > src)
 		return (0);
-	return (i = ptr - src + ft_strlen(set));
+	i = ptr - src + ft_strlen(set);	
+	return (i);
 }
 
 static size_t	get_len(const char *src, const char *set, size_t start)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = ft_strnstr(src + start, set, ft_strlen(src));
 	if (ptr)
@@ -65,9 +66,9 @@ static size_t	count_strings(const char *src, const char *set)
 
 static int	init_dst(char **dst, const char *src, const char *set, size_t size)
 {
-	size_t i;
-	size_t start;
-	size_t len;
+	size_t	i;
+	size_t	start;
+	size_t	len;
 
 	i = 0;
 	start = 0;
@@ -84,7 +85,7 @@ static int	init_dst(char **dst, const char *src, const char *set, size_t size)
 	return (1);
 }
 
-char		**ft_split_strnstr(const char *src, const char *set, size_t *size)
+char	**ft_split_strnstr(const char *src, const char *set, size_t *size)
 {
 	char	**dst;
 	size_t	array_size;

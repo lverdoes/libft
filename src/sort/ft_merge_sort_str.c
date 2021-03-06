@@ -6,17 +6,17 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 21:27:33 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/06 12:47:03 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/06 11:14:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		get_left_or_right(t_merge *m, size_t i, size_t j)
+static int	get_left_or_right(t_merge *m, size_t i, size_t j)
 {
-	char *left;
-	char *right;
-	
+	char	*left;
+	char	*right;
+
 	if (j == m->len_r)
 		return (1);
 	if (i == m->len_l)
@@ -26,9 +26,9 @@ static int		get_left_or_right(t_merge *m, size_t i, size_t j)
 	return (ft_strcmp(left, right) <= 0);
 }
 
-static void		merge_arrays(t_merge *merge, char **array, size_t start)
+static void	merge_arrays(t_merge *merge, char **array, size_t start)
 {
-	t_merge *m;
+	t_merge	*m;
 	size_t	i;
 	size_t	j;
 	size_t	k;
@@ -54,18 +54,18 @@ static void		merge_arrays(t_merge *merge, char **array, size_t start)
 	}
 }
 
-static int		init(char **array, size_t start, size_t middle, size_t end)
+static int	init(char **array, size_t start, size_t middle, size_t end)
 {
-	t_merge merge;
+	t_merge	merge;
 
 	merge.array = array;
 	merge.len_l = middle - start + 1;
 	merge.len_r = end - middle;
 	merge.total_len = end - start + 1;
-	merge.left = ft_arraydup((const char **)array + start, merge.len_l);
+	merge.left = ft_arraydup(array + start, merge.len_l);
 	if (!merge.left)
 		return (0);
-	merge.right = ft_arraydup((const char **)array + middle + 1, merge.len_r);
+	merge.right = ft_arraydup(array + middle + 1, merge.len_r);
 	if (!merge.right)
 		return (ft_free_array((void **)merge.left, merge.len_r));
 	merge_arrays(&merge, merge.array, start);
@@ -74,9 +74,9 @@ static int		init(char **array, size_t start, size_t middle, size_t end)
 	return (1);
 }
 
-static int		divide_array_in_two(char **array, size_t start, size_t end)
+static int	divide_array_in_two(char **array, size_t start, size_t end)
 {
-	size_t middle;
+	size_t	middle;
 
 	middle = start + (end - start) / 2;
 	if (start < end)
@@ -91,12 +91,12 @@ static int		divide_array_in_two(char **array, size_t start, size_t end)
 	return (1);
 }
 
-int				ft_merge_sort_str(char **array, size_t *array_size)
+int	ft_merge_sort_str(char **array, size_t *array_size)
 {
-	size_t end;
-	
+	size_t	end;
+
 	if (!array_size)
-		end = ft_array_size((const char **)array);
+		end = ft_array_size(array);
 	else
 		end = *array_size;
 	if (end < 2)

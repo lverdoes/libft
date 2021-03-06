@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/03 18:05:22 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:22:49 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	get_magnitude(size_t num)
 {
-	size_t ret;
+	size_t	ret;
 
 	ret = 1;
 	while (num > 9)
@@ -27,9 +27,9 @@ static size_t	get_magnitude(size_t num)
 
 static void	put_indentation_space(size_t i, size_t len)
 {
-	size_t magnitude_len;
-	size_t magnitude_i;
-	size_t spaces;
+	size_t	magnitude_len;
+	size_t	magnitude_i;
+	size_t	spaces;
 
 	len--;
 	magnitude_len = get_magnitude(len);
@@ -44,7 +44,7 @@ static void	put_indentation_space(size_t i, size_t len)
 
 void	ft_print_int_array(int *array, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	if (size == 0)
 		return ;

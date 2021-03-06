@@ -6,13 +6,13 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/01 08:53:21 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:05:46 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		putnbr(char *str, size_t i, int n)
+static void	putnbr(char *str, size_t i, int n)
 {
 	if (n >= 10)
 		putnbr(str, i - 1, n / 10);
@@ -21,7 +21,7 @@ static void		putnbr(char *str, size_t i, int n)
 
 static size_t	find_len(int n)
 {
-	size_t len;
+	size_t	len;
 
 	if (n == -2147483648)
 		return (11);
@@ -39,7 +39,7 @@ static size_t	find_len(int n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	size_t	len;
 	char	*str;

@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 11:34:06 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:06:53 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t	set_check(char c, char const *str)
 	return (1);
 }
 
-static char		*trim_str(char const *s1, char const *set)
+static char	*trim_str(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -52,7 +52,7 @@ static char		*trim_str(char const *s1, char const *set)
 	return (trim);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	if (!s1)
 		return (NULL);

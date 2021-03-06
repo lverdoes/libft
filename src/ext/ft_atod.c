@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/29 17:30:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/09 12:55:59 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:16:17 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static double	read_decimals(const char *str)
 {
-	double result;
-	double magnitude;
-	size_t i;
+	double	result;
+	double	magnitude;
+	size_t	i;
 
 	result = 0;
 	magnitude = 1;
@@ -31,7 +31,7 @@ static double	read_decimals(const char *str)
 	return (result);
 }
 
-double			ft_atod(const char *str)
+double	ft_atod(const char *str)
 {
 	double	result;
 	int		neg;

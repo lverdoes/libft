@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 19:48:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 09:22:46 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/02/26 15:50:25 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 **	If sorted in descending order, 1 is returned.
 */
 
-static int check_ascending(t_node *prev, t_node *tmp, int (*cmp)())
+static int	check_ascending(t_node *prev, t_node *tmp, int (*cmp)())
 {
-	int ret;
-	
+	int	ret;
+
 	while (tmp)
 	{
 		ret = cmp(prev->content, tmp->content);
@@ -35,10 +35,10 @@ static int check_ascending(t_node *prev, t_node *tmp, int (*cmp)())
 	return (-1);
 }
 
-static int check_descending(t_node *prev, t_node *tmp, int (*cmp)())
+static int	check_descending(t_node *prev, t_node *tmp, int (*cmp)())
 {
-	int ret;
-	
+	int	ret;
+
 	while (tmp)
 	{
 		ret = cmp(prev->content, tmp->content);
@@ -52,12 +52,12 @@ static int check_descending(t_node *prev, t_node *tmp, int (*cmp)())
 
 int	ft_node_is_sorted(t_node **head, int (*cmp)())
 {
+	int		ret;
 	t_node	*tmp;
 	t_node	*prev;
-	int		ret;
 
 	prev = *head;
-	tmp = (*head)->next;;
+	tmp = (*head)->next;
 	while (tmp)
 	{
 		ret = cmp(prev->content, tmp->content);
