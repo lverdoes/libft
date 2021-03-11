@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/04 16:38:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/03/06 10:56:22 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/11 17:31:31 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	ft_node_del_one(t_node *node, void (*del)(void *));
 t_node	*ft_node_dup(t_node *head, void *data_ref, \
 		int (*cmp)(), void *(*dup)(void *), void (*del)(void *));
 t_node	*ft_node_find(t_node *start, void *data_ref, int (*cmp)());
-void	ft_node_insert_after(t_node *node, t_node *after_this);
+void	ft_node_insert_after(t_node **head, t_node *node, t_node *after_this);
 void	ft_node_insert_before(t_node **head, t_node *node, t_node *before_this);
 void	ft_node_insert_sort(t_node **head, t_node *node, int (*cmp)());
 int		ft_node_is_sorted(t_node **head, int (*cmp)());
