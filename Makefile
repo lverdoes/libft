@@ -6,12 +6,11 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/03/06 11:11:56 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/03/19 21:33:32 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-HEADERS = libft.h
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -pedantic -I.
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
@@ -64,7 +63,7 @@ LST = \
 	ft_lstnew.c \
 	ft_lstsize.c \
 
-EXT =	\
+EXT = \
 	ft_append.c \
 	ft_array_size.c \
 	ft_arraydup.c \
@@ -94,7 +93,6 @@ EXT =	\
 GNL = \
 	ft_getline.c \
 	get_next_line.c
-	
 
 NODE = \
 	ft_node_add_back.c \
@@ -143,34 +141,35 @@ OBJ_DIRS = \
 	obj/node \
 	obj/sort
 
-all: $(NAME)
-
 SRC	= $(addprefix src/, $(SRC_DIRS))
 OBJ = $(SRC:src/%.c=obj/%.o)
 
+all: $(NAME)
+
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $?
+	@ar rcs $(NAME) $(OBJ)
+	@echo "Created $@\x1b[1A\x1b[M"
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIRS)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "Compiling $<\x1b[1A\x1b[1M"
 
 .PHONY:	clean fclean re
 
 clean:
-	@/bin/rm -f $(OBJ)
+	@/bin/rm -rf $(OBJ_DIRS)
 	@/bin/rm -f .DS_Store
-	@/bin/rm -f a.out
+	@echo "Deleted obj files"
 
 fclean: clean
-	/bin/rm -f $(NAME)
-	@/bin/rm -f *.a
-	/bin/rm -rf $(OBJ_DIRS)
+	@/bin/rm -f $(NAME)
+	@echo "Deleted $(NAME)"
 
 re: fclean all
 
 main: all
 	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c utils/*.c
-	./a.out
+	@./a.out
 
 test: main

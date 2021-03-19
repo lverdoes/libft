@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/04 09:01:25 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/03/06 10:42:11 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/03/19 18:31:11 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	get_start(const char *src, const char *set, size_t i)
 		return (i);
 	if (i == 0 && ptr > src)
 		return (0);
-	i = ptr - src + ft_strlen(set);	
+	i = ptr - src + ft_strlen(set);
 	return (i);
 }
 
