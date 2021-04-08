@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dict_find.c                                     :+:    :+:            */
+/*   ft_dict_size.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/04/07 08:13:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/08 21:50:57 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/04/07 09:45:11 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/04/08 21:27:14 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dict.h"
 
-t_dict	*ft_dict_find(t_dict *head, char *key)
+static void	go_page(t_dict *dict, size_t *const size)
 {
-	t_dict	*tmp;
-	int		i;
-	int		j;
+	int	i;
 
-	if (!head || !key)
-		return (NULL);
-	i = 0;
-	tmp = head;
-	while (key[i])
+	if (dict->d)
 	{
-		j = tmp->num[(int)key[i]];
-		if (j < 0)
-			return (NULL);
-		tmp = tmp->d[j];
-		i++;
+		i = 0;
+		while (dict->d[i] != NULL)
+		{
+			go_page(dict->d[i], size);
+			i++;
+		}
 	}
-	return (tmp);
+	if (dict->content)
+		*size += 1;
+}
+
+size_t	ft_dict_size_content(t_dict *head)
+{
+	size_t	size;
+
+	if (!head)
+		return (0);
+	size = 0;
+	go_page(head, &size);
+	return (size);
 }

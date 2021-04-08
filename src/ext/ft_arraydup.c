@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 12:35:17 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/08 23:42:42 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**ft_arraydup(char **array, size_t size)
 	if (!array)
 		return (NULL);
 	if (!size)
-		size = ft_array_size(array);
+		size = ft_array_size((void **)array);
 	dst = ft_calloc((size + 1), sizeof(char *));
 	if (!dst)
 		return (NULL);

@@ -6,13 +6,13 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/04/07 11:55:36 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/04/08 21:28:25 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 CC		= gcc
-FLAGS	= -Wall -Wextra -Werror -I$(INCL)
+FLAGS	= -Wall -Wextra -Werror -I$(INCL) $(UNUSED)
 INCL	= includes/
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 
@@ -112,7 +112,8 @@ DICT = \
 	ft_dict_del_one.c \
 	ft_dict_find.c \
 	ft_dict_new.c \
-	ft_dict_size.c
+	ft_dict_size_content.c \
+	ft_dict_size_page.c
 
 SRC_DIRS = \
 	$(addprefix mandatory/, $(MANDATORY)) \

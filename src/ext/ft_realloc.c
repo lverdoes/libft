@@ -6,14 +6,14 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:17:12 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 12:36:11 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/09 00:27:17 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ext.h"
 
-static char	**free_array(char **dst, size_t i)
+static void	**free_array(void **dst, size_t i)
 {
 	while (i > 0)
 	{
@@ -24,7 +24,7 @@ static char	**free_array(char **dst, size_t i)
 	return (NULL);
 }
 
-static void	copy_ptrs(char **dst, char **src, size_t size)
+static void	copy_ptrs(void **dst, void **src, size_t size)
 {
 	size_t	i;
 
@@ -36,20 +36,17 @@ static void	copy_ptrs(char **dst, char **src, size_t size)
 	}
 }
 
-char	**ft_realloc(char **src, const char *line, size_t *size)
+void	**ft_realloc(void **src, void *ptr, size_t *size)
 {
-	char	**dst;
+	void	**dst;
 	size_t	array_size;
 
 	array_size = ft_array_size(src);
-	dst = ft_calloc(array_size + 2, sizeof(char *));
+	dst = ft_calloc(array_size + 2, sizeof(void *));
 	if (!dst)
-		return (free_array(dst, array_size));
+		return (NULL);
 	copy_ptrs(dst, src, array_size);
-	ft_free(src);
-	dst[array_size] = ft_strdup(line);
-	if (!dst[array_size])
-		return (free_array(dst, array_size));
+	dst[array_size] = ptr;
 	if (size)
 		*size = array_size + 1;
 	return (dst);

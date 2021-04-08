@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/06 21:15:19 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 12:35:56 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/08 22:29:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_concat_array(char **array, char *dl)
 	char	*dst;
 	size_t	size;
 
-	size = ft_array_size(array);
+	size = ft_array_size((void **)array);
 	if (size == 0)
 		return (NULL);
 	dst = ft_strdup(array[0]);
