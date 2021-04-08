@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:22:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 21:29:20 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/08 11:03:14 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_dict	*create_node(void)
 {
 	t_dict	*dst;
 	int		i;
-	
+
 	dst = malloc(sizeof(t_dict));
 	if (!dst)
 		return (NULL);
@@ -31,30 +31,37 @@ static t_dict	*create_node(void)
 	return (dst);
 }
 
-int	ft_dict_new(t_dict **head, void *content, char const *const str)
+static int	check_head(t_dict **head)
 {
-	int		i;
-	t_dict	*tmp;
-
 	if (!*head)
 	{
 		*head = create_node();
 		if (!*head)
-			return (-1);
+			return (0);
 	}
+	return (1);
+}
+
+int	ft_dict_new(t_dict **head, void *content, char *key)
+{
+	int		i;
+	t_dict	*tmp;
+
+	if (!check_head(head))
+		return (-1);
 	tmp = *head;
 	i = 0;
-	while (str[i])
+	while (key[i])
 	{
-		if (tmp->dict[(int)str[i]])
+		if (tmp->dict[(int)key[i]])
 		{
-			tmp = tmp->dict[(int)str[i]];
+			tmp = tmp->dict[(int)key[i]];
 			i++;
 		}
 		else
 		{
-			tmp->dict[(int)str[i]] = create_node();
-			if (!tmp->dict[(int)str[i]])
+			tmp->dict[(int)key[i]] = create_node();
+			if (!tmp->dict[(int)key[i]])
 				return (-1);
 		}
 	}
