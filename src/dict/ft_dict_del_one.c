@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_front.c                                  :+:    :+:            */
+/*   ft_dict_del_one.c                                  :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/14 18:28:01 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/05 08:25:57 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/04/07 09:34:41 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/04/07 11:42:22 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_dict.h"
+#include <stdlib.h>
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_dict_del_one(t_dict *dict, void (*del)(void *))
 {
-	new->next = *alst;
-	*alst = new;
+	if (!dict)
+		return ;
+	if (dict->content)
+		del(dict->content);
+	free(dict);
+	dict = NULL;
 }

@@ -6,11 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/06 21:15:19 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/03/11 17:30:26 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/07 12:35:56 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_ext.h"
 
 /*
 **	ft_concat_array is the opposite of ft_split

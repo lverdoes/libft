@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/13 15:40:26 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/02/26 15:29:34 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/12/16 12:21:25 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/04/07 11:26:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 128
+# endif
+
+typedef struct s_fd
 {
-	t_list	*list;
+	int		fd;
+	char	*str;
+}	t_fd;
 
-	list = *alst;
-	if (list)
-	{
-		while (list->next)
-			list = list->next;
-		list->next = new;
-	}
-	else
-		ft_lstadd_front(alst, new);
-}
+int		ft_getline(int fd, char **line);
+int		get_next_line(int fd, char **line);
+
+#endif

@@ -6,11 +6,11 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 11:55:57 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/06 16:23:24 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/07 11:35:16 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_node.h"
 
 /*
 **	typedef struct s_elem

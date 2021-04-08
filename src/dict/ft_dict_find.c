@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_node_insert_before.c                            :+:    :+:            */
+/*   ft_dict_find.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/27 23:35:52 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 11:35:37 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/04/07 08:13:32 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/04/07 21:29:28 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_node.h"
+#include "ft_dict.h"
 
-void	ft_node_insert_before(t_node **head, t_node *node, t_node *before_this)
+t_dict	*ft_dict_find(t_dict *head, char *str)
 {
-	if (!before_this)
+	int		i;
+	t_dict	*tmp;
+
+	if (!str)
+		return (NULL);
+	i = 0;
+	tmp = head;
+	while (str[i])
 	{
-		ft_node_add_back(head, node);
-		return ;
-	}	
-	if (before_this == *head)
-	{
-		ft_node_add_front(head, node);
-		return ;
+		if (tmp && tmp->dict[(int)str[i]])
+		{
+			tmp = tmp->dict[(int)str[i]];
+			i++;
+		}
+		else
+			return (NULL);
 	}
-	node->prev = before_this->prev;
-	node->next = before_this;
-	before_this->prev = node;
-	node->prev->next = node;
+	return (tmp);
 }

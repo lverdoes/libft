@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_node_insert_before.c                            :+:    :+:            */
+/*   ft_dict_size.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/27 23:35:52 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/07 11:35:37 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/04/07 09:45:11 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/04/07 19:02:30 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_node.h"
+#include "ft_dict.h"
 
-void	ft_node_insert_before(t_node **head, t_node *node, t_node *before_this)
+static void	go_page(t_dict *dict, size_t *const size)
 {
-	if (!before_this)
-	{
-		ft_node_add_back(head, node);
+	int	i;
+
+	if (!dict)
 		return ;
-	}	
-	if (before_this == *head)
+	i = 0;
+	while (i < PAGES)
 	{
-		ft_node_add_front(head, node);
-		return ;
+		go_page(dict->dict[i], size);
+		i++;
 	}
-	node->prev = before_this->prev;
-	node->next = before_this;
-	before_this->prev = node;
-	node->prev->next = node;
+	if (dict->content)
+		*size += 1;
+}
+
+size_t	ft_dict_size(t_dict *head)
+{
+	size_t	size;
+
+	size = 0;
+	go_page(head, &size);
+	return (size);
 }
