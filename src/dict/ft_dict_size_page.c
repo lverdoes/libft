@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/08 21:27:31 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/09 00:05:35 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/09 15:22:49 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@ static void	go_page(t_dict *dict, size_t *const size)
 {
 	int	i;
 
-	*size += 1;
-	if (!dict->d)
-		return ;
 	i = 0;
-	while (dict->d[i] != NULL)
+	while (i < PAGES)
 	{
-		go_page(dict->d[i], size);
+		if (dict->dict[i])
+			go_page(dict->dict[i], size);
 		i++;
 	}
+	*size += 1;
 }
 
 size_t	ft_dict_size_page(t_dict *head)

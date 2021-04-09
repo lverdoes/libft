@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:13:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/08 21:50:57 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/04/09 15:33:13 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 t_dict	*ft_dict_find(t_dict *head, char *key)
 {
-	t_dict	*tmp;
 	int		i;
-	int		j;
+	t_dict	*tmp;
 
-	if (!head || !key)
-		return (NULL);
+	if (!key)
+		return (0);
 	i = 0;
 	tmp = head;
 	while (key[i])
 	{
-		j = tmp->num[(int)key[i]];
-		if (j < 0)
-			return (NULL);
-		tmp = tmp->d[j];
-		i++;
+		if (tmp && tmp->dict[(unsigned char)key[i]])
+		{
+			tmp = tmp->dict[(unsigned char)key[i]];
+			i++;
+		}
+		else
+			return (0);
 	}
 	return (tmp);
 }

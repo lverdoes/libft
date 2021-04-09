@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/04/08 21:28:25 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/04/09 15:45:12 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -152,6 +152,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@/bin/rm -f a.out
 	@/bin/rm -f .DS_Store
 	@echo "Deleted $(NAME)"
 	@echo ""
@@ -159,7 +160,7 @@ fclean: clean
 re: fclean all
 
 main: all
-	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c utils/*.c
+	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c
 	@./a.out
 
 test: main
