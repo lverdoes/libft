@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/05/26 10:00:36 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/05/26 12:23:37 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ EXT = \
 	ft_unique_chars.c
 
 GNL = \
-	ft_getline.c \
+	ft_getfile.c \
 	get_next_line.c
 
 LIST = \
@@ -163,4 +163,4 @@ main: all
 	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c
 	@./a.out
 
-test: main
+test: re main

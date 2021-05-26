@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   get_next_line.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lverdoes <marvin@codam.nl>                   +#+                     */
+/*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/04 15:51:49 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:44:05 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/05/26 13:11:35 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/05/26 13:11:41 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ static int	read_file(int fd, t_fd *file)
 
 	buffer = ft_calloc((size_t)BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
-		return (-1);
+		return (GNL_ERROR);
 	ret = read(fd, buffer, BUFFER_SIZE);
 	if (ret < 0)
 	{
 		ft_free(buffer);
-		return (-1);
+		return (GNL_ERROR);
 	}
 	buffer[ret] = '\0';
 	file->str = ft_append(file->str, buffer);
 	ft_free(buffer);
 	if (!file->str)
-		return (-1);
+		return (GNL_ERROR);
 	return (ret);
 }
 
@@ -106,21 +106,21 @@ int	get_next_line(int fd, char **line)
 	t_fd			*file;
 
 	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE < 1 || !line)
-		return (-1);
+		return (GNL_ERROR);
 	list = find_fd(&head, head, fd);
 	if (!list)
-		return (-1);
+		return (GNL_ERROR);
 	file = list->content;
 	ret = 1;
 	while (ret > 0 && !ft_strchr(file->str, '\n'))
 		ret = read_file(fd, file);
 	if (ret < 0)
-		return (free_list(&head, list, -1));
+		return (free_list(&head, list, GNL_ERROR));
 	*line = ft_substr(file->str, 0, ft_substrlen(file->str, "\n"));
 	if (!*line)
-		return (free_list(&head, list, -1));
+		return (free_list(&head, list, GNL_ERROR));
 	file->str = reset_ptr(file->str);
-	if (ret == 0)
-		return (free_list(&head, list, 0));
-	return (1);
+	if (ret == GNL_END)
+		return (free_list(&head, list, GNL_END));
+	return (GNL_LINE);
 }
