@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/04/08 23:40:16 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/06/08 13:00:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ double	ft_atod(const char *str);
 char	*ft_concat_array(char **array, char *delim);
 size_t	ft_counter(const char *s, const char *set);
 void	*ft_free(void *ptr);
-int		ft_free1(void *ptr);
-int		ft_free2(void **array, size_t i);
+void	*ft_free_array(void **array, size_t i);
 int		*ft_intdup(int *src, size_t len);
 int		ft_iswhitespace(int c);
 void	ft_print_array(char **array);
