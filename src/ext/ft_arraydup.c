@@ -6,23 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/13 11:59:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/06/08 13:01:04 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/06/30 22:43:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ext.h"
-
-// static char	**free_array(char **dst, size_t i)
-// {
-// 	while (i > 0)
-// 	{
-// 		i--;
-// 		ft_free(dst[i]);
-// 	}
-// 	ft_free(dst);
-// 	return (NULL);
-// }
 
 char	**ft_arraydup(char **array, size_t size)
 {

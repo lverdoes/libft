@@ -6,12 +6,15 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/06/08 13:00:20 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/06/25 01:01:28 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_EXT_H
 # define FT_EXT_H
+
+# define FALSE 0
+# define TRUE !0
 
 # include <stddef.h>
 

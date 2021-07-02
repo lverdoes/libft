@@ -6,15 +6,15 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/05/26 12:23:37 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/07/02 20:13:40 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-CC		= gcc
-FLAGS	= -Wall -Wextra -Werror -I$(INCL) $(UNUSED)
-INCL	= includes/
+FLAGS	= -Wall -Wextra -Werror
+STRICT	= -std=c99 -pedantic
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
+INCL	= includes
 
 MANDATORY =	\
 	ft_memset.c \
@@ -141,7 +141,7 @@ $(NAME): $(OBJ)
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIRS)
-	@$(CC) $(FLAGS) -c $< -o $@
+	@gcc $(FLAGS) $(STRICT) -I$(INCL) -c $< -o $@ 
 	@echo "Compiling libft/$<\x1b[1A\x1b[1M"
 
 .PHONY:	clean fclean re
@@ -159,8 +159,6 @@ fclean: clean
 
 re: fclean all
 
-main: all
-	$(CC) $(FLAGS) $(UNUSED) $(NAME) main.c
+test: re all
+	gcc $(FLAGS) $(UNUSED) -I$(INCL) main.c $(NAME)
 	@./a.out
-
-test: re main
