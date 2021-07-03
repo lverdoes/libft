@@ -6,7 +6,7 @@
 /*   By: lverdoes <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/30 14:17:12 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/06/30 22:42:35 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/03 10:28:05 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	size_t	result;
-	int					neg;
-	size_t				i;
+	int		neg;
+	size_t	i;
 
 	result = 0;
 	i = 0;
