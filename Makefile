@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/07/02 20:13:40 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/07/03 15:33:50 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ SRC_DIRS = \
 	$(addprefix mandatory/, $(MANDATORY)) \
 	$(addprefix ext/, $(EXT)) \
 	$(addprefix gnl/, $(GNL)) \
-	$(addprefix list/, $(NODE)) \
+	$(addprefix list/, $(LIST)) \
 	$(addprefix trie/, $(TRIE))
 
 OBJ_DIRS = \
