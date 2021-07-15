@@ -2,8 +2,8 @@
 .DS_Store
 main.c
 main.h
-/obj
-/hotrace
+./obj/
+./hotrace/*
 
 # Prerequisites
 *.d
