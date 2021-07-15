@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:13:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/25 20:11:48 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/15 09:59:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_trie	*ft_trie_find(t_trie *head, char *key)
 	t_trie	*tmp;
 
 	if (!key)
-		return (0);
+		return (NULL);
 	i = 0;
 	tmp = head;
 	while (key[i])
@@ -29,7 +29,7 @@ t_trie	*ft_trie_find(t_trie *head, char *key)
 			i++;
 		}
 		else
-			return (0);
+			return (NULL);
 	}
 	return (tmp);
 }

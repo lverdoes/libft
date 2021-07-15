@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/07/03 15:33:50 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/07/15 12:15:32 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,6 +159,6 @@ fclean: clean
 
 re: fclean all
 
-test: re all
+test: all
 	gcc $(FLAGS) $(UNUSED) -I$(INCL) main.c $(NAME)
 	@./a.out
