@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:22:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/25 20:11:16 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/19 19:24:52 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@
 int	ft_trie_new(t_trie *head, char *key, void *content)
 {
 	int		i;
-	t_trie	*tmp;
+	t_trie	*current;
+	t_trie	*next;
 
-	tmp = head;
+	current = head;
 	i = 0;
 	while (key[i])
 	{
-		if (tmp->trie[(unsigned char)key[i]])
+		next = current->trie[(unsigned char)key[i]];
+		if (!next)
 		{
-			tmp = tmp->trie[(unsigned char)key[i]];
-			i++;
+			next = ft_trie_init();
+			if (!next)
+				return (TRIE_ERROR_MALLOC);
+			current->trie[(unsigned char)key[i]] = next;
 		}
-		else
-		{
-			tmp->trie[(unsigned char)key[i]] = ft_calloc(1, sizeof(t_trie));
-			if (!tmp->trie[(unsigned char)key[i]])
-				return (-1);
-		}
+		current = next;
+		i++;
 	}
-	if (tmp->content)
-		return (0);
-	tmp->content = content;
-	return (1);
+	if (current->content)
+		return (TRIE_ERROR_OCCUPIED_PAIR);
+	current->content = content;
+	return (TRIE_SUCCESS);
 }

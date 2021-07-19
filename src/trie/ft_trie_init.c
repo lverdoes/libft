@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_trie_clear.c                                    :+:    :+:            */
+/*   ft_trie_init.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/04/07 09:39:10 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 18:41:02 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/07/19 17:56:13 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/07/19 17:56:35 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_trie.h"
+#include "libft.h"
+#include <stdlib.h>
 
-static void	go_node(t_trie *trie, void (*del_content)(void *))
+t_trie	*ft_trie_init(void)
 {
-	int	i;
+	t_trie	*node;
 
-	i = 0;
-	while (i < NODES)
-	{
-		if (trie->trie[i])
-			go_node(trie->trie[i], del_content);
-		i++;
-	}
-	ft_trie_del_one(trie, del_content);
-}
-
-void	ft_trie_clear(t_trie **head, void (*del_content)(void *))
-{
-	if (!head)
-		return ;
-	go_node(*head, del_content);
-	*head = NULL;
+	node = ft_calloc(1, sizeof(t_trie));
+	return (node);
 }
