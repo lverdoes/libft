@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:13:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 18:46:00 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/21 09:42:36 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_trie	*ft_trie_find(t_trie *head, char *key)
 	current = head;
 	while (key[i])
 	{
-		if (current && current->trie[(unsigned char)key[i]])
+		if (current)
 		{
 			current = current->trie[(unsigned char)key[i]];
 			i++;

@@ -6,13 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/19 17:56:13 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 17:56:35 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/21 09:48:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_trie.h"
 #include "libft.h"
-#include <stdlib.h>
 
 t_trie	*ft_trie_init(void)
 {

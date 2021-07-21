@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:22:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 19:24:52 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/21 09:44:26 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_trie_new(t_trie *head, char *key, void *content)
 		i++;
 	}
 	if (current->content)
-		return (TRIE_ERROR_OCCUPIED_PAIR);
+		return (TRIE_ERROR_EXISTING_PAIR);
 	current->content = content;
 	return (TRIE_SUCCESS);
 }

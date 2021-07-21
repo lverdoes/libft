@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:14:00 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 19:24:14 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/21 09:44:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ enum trie_return
 {
 	TRIE_SUCCESS,
 	TRIE_ERROR_MALLOC,
-	TRIE_ERROR_OCCUPIED_PAIR,
+	TRIE_ERROR_EXISTING_PAIR,
 };
 
 typedef struct s_trie
