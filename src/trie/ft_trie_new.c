@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:22:08 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/21 09:44:26 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/25 15:11:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_trie_new(t_trie *head, char *key, void *content)
 		next = current->trie[(unsigned char)key[i]];
 		if (!next)
 		{
-			next = ft_trie_init();
+			next = ft_trie_alloc();
 			if (!next)
 				return (TRIE_ERROR_MALLOC);
 			current->trie[(unsigned char)key[i]] = next;

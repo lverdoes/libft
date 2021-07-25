@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_trie_init.c                                     :+:    :+:            */
+/*   ft_trie_remove.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/07/19 17:56:13 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/21 09:48:51 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/07/25 15:13:22 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/07/25 17:00:38 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_trie.h"
-#include "libft.h"
 
-t_trie	*ft_trie_init(void)
+void	ft_trie_remove(t_trie *head, char *key, void (*del)(void *))
 {
 	t_trie	*node;
 
-	node = ft_calloc(1, sizeof(t_trie));
-	return (node);
+	node = ft_trie_find(head, key);
+	if (node)
+	{
+		del(node);
+		node->content = NULL;
+	}
 }

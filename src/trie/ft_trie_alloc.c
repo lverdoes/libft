@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_trie_del_one.c                                  :+:    :+:            */
+/*   ft_trie_init.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/04/07 09:34:41 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/19 18:07:54 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/07/19 17:56:13 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/07/25 15:10:59 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_trie.h"
-#include "ft_ext.h"
+#include "libft.h"
 
-void	ft_trie_del_one(t_trie *trie, void (*del_content)(void *))
+t_trie	*ft_trie_alloc(void)
 {
-	if (!trie)
-		return ;
-	del_content(trie->content);
-	ft_free(trie);
+	t_trie	*node;
+
+	node = ft_calloc(1, sizeof(t_trie));
+	return (node);
 }

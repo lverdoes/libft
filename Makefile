@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/07/19 18:40:07 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/07/25 15:18:03 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,10 +109,10 @@ LIST = \
 
 TRIE = \
 	ft_trie_clear.c \
-	ft_trie_del_one.c \
 	ft_trie_find.c \
-	ft_trie_init.c \
+	ft_trie_alloc.c \
 	ft_trie_new.c \
+	ft_trie_remove.c \
 	ft_trie_size_content.c \
 	ft_trie_size_nodes.c
 
