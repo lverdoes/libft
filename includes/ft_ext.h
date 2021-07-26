@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/06 08:17:52 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/07/26 09:41:15 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_array(char **array);
 void	ft_print_int_array(int *array, size_t size);
 void	**ft_realloc(void **src, void *ptr, size_t *size);
 char	*ft_replace(char *s1, const char *s2, char *ptr, size_t ptr_len);
-char	**ft_split_strchr(const char *s, const char *set, size_t *size);
+char	**ft_split_strchr(const char *srs, const char *set, size_t *size);
 char	**ft_split_strnstr(const char *src, const char *set, size_t *size);
 int		ft_str_contains_none(const char *str, const char *set);
 int		ft_str_contains_only(const char *str, const char *set);
@@ -38,7 +38,7 @@ void	ft_str_to_upper(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strxjoin(const char *src, ...);
 size_t	ft_substrlen(const char *str, const char *set);
-void	ft_swap(void *a, void *b, size_t size_of_data_type);
+void	ft_swap(void *a, void *b, size_t size_datatype);
 int		ft_unique_chars(const char *str);
 
 #endif
