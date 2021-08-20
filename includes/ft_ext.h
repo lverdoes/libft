@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/26 09:41:15 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/08/13 08:07:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	*ft_free(void *ptr);
 void	*ft_free_array(void **array, size_t i);
 int		*ft_intdup(int *src, size_t len);
 int		ft_iswhitespace(int c);
+int		ft_leaks(char *program_name);
 void	ft_print_array(char **array);
 void	ft_print_int_array(int *array, size_t size);
 void	**ft_realloc(void **src, void *ptr, size_t *size);
@@ -40,5 +41,15 @@ char	*ft_strxjoin(const char *src, ...);
 size_t	ft_substrlen(const char *str, const char *set);
 void	ft_swap(void *a, void *b, size_t size_datatype);
 int		ft_unique_chars(const char *str);
+
+#define ft_min(a,b) \
+	({ typeof (a) _a = (a); \
+	typeof (b) _b = (b); \
+	_a < _b ? _a : _b; })
+
+#define ft_max(a,b) \
+	({ typeof (a) _a = (a); \
+	typeof (b) _b = (b); \
+	_a > _b ? _a : _b; })
 
 #endif

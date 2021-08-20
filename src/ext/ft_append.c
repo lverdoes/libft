@@ -6,12 +6,13 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/09 20:45:32 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/06/08 12:58:54 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/08/20 11:08:57 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_ext.h"
+#include <stdlib.h>
 
 /*
 **	s1:			The initial string that will be appended to.
@@ -42,6 +43,6 @@ char	*ft_append(char *s1, const char *s2)
 		return (ft_free(s1));
 	ft_strlcat(dst, s1, len + 1);
 	ft_strlcat(dst, s2, len + 1);
-	ft_free(s1);
+	free(s1);
 	return (dst);
 }

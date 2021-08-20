@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/07/25 15:18:03 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/08/12 17:32:06 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ EXT = \
 	ft_free.c \
 	ft_intdup.c \
 	ft_iswhitespace.c \
+	ft_leaks.c \
 	ft_print_array.c \
 	ft_print_int_array.c \
 	ft_realloc.c \
