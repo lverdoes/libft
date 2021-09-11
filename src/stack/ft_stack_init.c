@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack_init.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 10:00:15 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/03 18:19:47 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stack.h"
 #include "libft.h"
 
-int	ft_unique_chars(const char *str)
+int	ft_stack_init(t_stack *s)
 {
-	int		tab[256];
-	size_t	i;
-
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
+	s->capacity = 8;
+	s->data = ft_calloc(s->capacity, sizeof(void *));
+	if (!s->data)
+		return (0);
+	s->size = 0;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/14 22:45:17 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 12:42:06 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/09 20:06:05 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 #include "libft.h"
 #include "ft_ext.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 static int	clean_up(void *str, void *buffer)
 {
-	if (str)
-		ft_free(str);
-	if (buffer)
-		ft_free(buffer);
+	free(str);
+	free(buffer);
 	return (GNL_ERROR);
 }
 
@@ -47,6 +46,6 @@ int	ft_getfile(int fd, char **str)
 		if (!*str)
 			return (clean_up(str, buffer));
 	}
-	ft_free(buffer);
+	free(buffer);
 	return (GNL_END);
 }

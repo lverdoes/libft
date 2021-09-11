@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_leaks.c                                         :+:    :+:            */
+/*   ft_enqueue.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/12 17:22:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/08/12 17:57:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/08/27 20:44:24 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/08/27 22:13:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "ft_queue.h"
 
-#if defined __APPLE__
-
-int	ft_leaks(char *program_name)
+int	ft_enqueue(t_queue *q, void *data)
 {
-	char	cmd[136];
-
-	if (ft_strlen(program_name) > 100)
-		return (0);
-	ft_strlcpy(cmd, "leaks ", 136);
-	ft_strlcat(cmd, &program_name[2], 136);
-	ft_strlcat(cmd, " | grep \"total leaked bytes\"", 136);
-	system(cmd);
+	if (q->end == q->capacity)
+	{
+		if (!ft_queue_resize(q))
+		{
+			ft_queue_clear(q);
+			return (0);
+		}
+	}
+	q->data[q->end] = data;
+	q->end++;
+	q->length++;
 	return (1);
 }
-
-#endif

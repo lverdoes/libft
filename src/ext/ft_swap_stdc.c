@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_swap_stdc.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2020/11/16 09:21:18 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/09 21:28:49 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-int	ft_unique_chars(const char *str)
+void	ft_swap_stdc(void *a, void *b, size_t size_datatype)
 {
-	int		tab[256];
-	size_t	i;
+	size_t			i;
+	unsigned char	*arg1;
+	unsigned char	*arg2;
 
-	ft_bzero(tab, sizeof(tab));
 	i = 0;
-	while (str[i] != '\0')
+	arg1 = a;
+	arg2 = b;
+	while (i < size_datatype)
 	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
+		arg1[i] = arg1[i] ^ arg2[i];
+		arg2[i] = arg1[i] ^ arg2[i];
+		arg1[i] = arg1[i] ^ arg2[i];
 		i++;
 	}
-	return (1);
 }

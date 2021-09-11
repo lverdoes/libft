@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack_delone.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 20:28:41 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/03 20:30:18 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stack.h"
 
-int	ft_unique_chars(const char *str)
+void	ft_stack_delone(t_stack *s, void (*f)(void *))
 {
-	int		tab[256];
-	size_t	i;
-
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
-	return (1);
+	if (s->size)
+		f(s->data[s->size - 1]);
 }

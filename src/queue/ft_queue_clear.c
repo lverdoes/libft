@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_queue_clear.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/08/27 21:00:09 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/11 12:16:34 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_queue.h"
+#include <stdlib.h>
 
-int	ft_unique_chars(const char *str)
+void	ft_queue_clear(t_queue *q)
 {
-	int		tab[256];
 	size_t	i;
 
-	ft_bzero(tab, sizeof(tab));
 	i = 0;
-	while (str[i] != '\0')
+	while (i < q->end)
 	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
+		free(q->data[i]);
 		i++;
 	}
-	return (1);
+	free(q->data);
+	free(q);
 }

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack.h                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 09:44:11 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/11 11:31:47 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_STACK_H
+# define FT_STACK_H
 
-int	ft_unique_chars(const char *str)
+# include <stddef.h>
+
+typedef struct s_stack
 {
-	int		tab[256];
-	size_t	i;
+	void	**data;
+	size_t	size;
+	size_t	capacity;
+}	t_stack;
 
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
-	return (1);
-}
+void	ft_stack_clear(t_stack *s, void (*f)(void *));
+void	*ft_stack_get_top(t_stack *s);
+int		ft_stack_init(t_stack *s);
+void	*ft_stack_pop(t_stack *s);
+int		ft_stack_push(t_stack *s, void *content);
+int		ft_stack_resize(t_stack *s);
+
+#endif

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_dequeue.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/08/27 20:46:36 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/08/27 22:44:42 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_queue.h"
+#include <stdlib.h>
 
-int	ft_unique_chars(const char *str)
+void	ft_dequeue(t_queue *q)
 {
-	int		tab[256];
-	size_t	i;
-
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
-	return (1);
+	if (q->length == 0)
+		return ;
+	free(q->data[q->front]);
+	q->front++;
+	q->length--;
 }

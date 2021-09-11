@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 08:14:00 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/25 17:01:42 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/11 11:28:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define NODES 256
 
-enum trie_return
+enum e_trie_return
 {
 	TRIE_SUCCESS,
 	TRIE_ERROR_MALLOC,

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:22:52 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:54:39 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/11 11:32:25 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 typedef struct s_list
 {
 	void			*content;
-	struct s_list	*prev;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 void	ft_list_add_back(t_list **head, t_list *new_list);

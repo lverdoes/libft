@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack_pop.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 12:07:29 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/09 10:13:22 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stack.h"
 
-int	ft_unique_chars(const char *str)
+void	*ft_stack_pop(t_stack *s)
 {
-	int		tab[256];
-	size_t	i;
+	void	*popped;
 
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
-	return (1);
+	if (s->size == 0)
+		return (NULL);
+	popped = s->data[s->size];
+	s->size--;
+	return (popped);
 }

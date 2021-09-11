@@ -6,14 +6,14 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 00:19:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:42:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/08/27 17:27:18 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
 /*
-**	Return the list at index position number.
+**	Return the node at index position number.
 **	For number = 0, head is returned.
 **	If number is out range, NULL is returned.
 */

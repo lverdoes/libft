@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_queue_resize.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/08/27 21:14:57 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/11 12:17:55 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_queue.h"
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_unique_chars(const char *str)
+int	ft_queue_resize(t_queue *q)
 {
-	int		tab[256];
-	size_t	i;
+	void	**new_data;
 
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
+	if (q->length > q->capacity / 2)
 	{
-		if (tab[(unsigned char)str[i]])
+		new_data = malloc(2 * q->capacity * sizeof(void *));
+		if (!new_data)
 			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
+		ft_memcpy(&new_data[0], &q->data[q->front], q->length * sizeof(void *));
+		free(q->data);
+		q->data = new_data;
+		q->capacity = q->capacity * 2;
 	}
+	else
+		ft_memcpy(&q->data[0], &q->data[q->front], q->length * sizeof(void *));
+	q->front = 0;
+	q->end = q->length;
 	return (1);
 }

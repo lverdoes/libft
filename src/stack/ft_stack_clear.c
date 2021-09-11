@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack_clear.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 12:00:08 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/11 12:17:13 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stack.h"
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_unique_chars(const char *str)
+void	ft_stack_clear(t_stack *s, void (*f)(void *))
 {
-	int		tab[256];
 	size_t	i;
 
-	ft_bzero(tab, sizeof(tab));
 	i = 0;
-	while (str[i] != '\0')
+	while (i < s->size)
 	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
+		f(s->data[i]);
 		i++;
 	}
-	return (1);
+	free(s->data);
+	ft_bzero(s, sizeof(t_stack));
 }

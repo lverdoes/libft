@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/08/12 17:32:06 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/09/09 21:29:56 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ STRICT	= -std=c99 -pedantic
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
 INCL	= includes
 
-MANDATORY =	\
+LIBFT =	\
 	ft_memset.c \
 	ft_bzero.c \
 	ft_memcpy.c \
@@ -62,7 +62,6 @@ EXT = \
 	ft_free.c \
 	ft_intdup.c \
 	ft_iswhitespace.c \
-	ft_leaks.c \
 	ft_print_array.c \
 	ft_print_int_array.c \
 	ft_realloc.c \
@@ -76,7 +75,7 @@ EXT = \
 	ft_strcmp.c \
 	ft_strxjoin.c \
 	ft_substrlen.c \
-	ft_swap.c \
+	ft_swap_stdc.c \
 	ft_unique_chars.c
 
 GNL = \
@@ -108,6 +107,22 @@ LIST = \
 	ft_list_unlink.c \
 	ft_list_print.c
 
+QUEUE = \
+	ft_dequeue.c \
+	ft_enqueue.c \
+	ft_queue_clear.c \
+	ft_queue_get_element.c \
+	ft_queue_init.c \
+	ft_queue_resize.c
+
+STACK = \
+	ft_stack_clear.c \
+	ft_stack_get_top.c \
+	ft_stack_init.c \
+	ft_stack_pop.c \
+	ft_stack_push.c \
+	ft_stack_resize.c
+
 TRIE = \
 	ft_trie_clear.c \
 	ft_trie_find.c \
@@ -118,18 +133,22 @@ TRIE = \
 	ft_trie_size_nodes.c
 
 SRC_DIRS = \
-	$(addprefix mandatory/, $(MANDATORY)) \
+	$(addprefix libft/, $(LIBFT)) \
 	$(addprefix ext/, $(EXT)) \
 	$(addprefix gnl/, $(GNL)) \
 	$(addprefix list/, $(LIST)) \
+	$(addprefix queue/, $(QUEUE)) \
+	$(addprefix stack/, $(STACK)) \
 	$(addprefix trie/, $(TRIE))
 
 OBJ_DIRS = \
 	obj \
-	obj/mandatory \
+	obj/libft \
 	obj/ext \
 	obj/gnl \
 	obj/list \
+	obj/queue \
+	obj/stack \
 	obj/trie
 
 SRC	= $(addprefix src/, $(SRC_DIRS))
@@ -143,7 +162,7 @@ $(NAME): $(OBJ)
 
 obj/%.o: src/%.c
 	@mkdir -p $(OBJ_DIRS)
-	@gcc $(FLAGS) $(STRICT) -I$(INCL) -c $< -o $@ 
+	@gcc $(FLAGS) -I$(INCL) -c $< -o $@ 
 	@echo "Compiling libft/$<\x1b[1A\x1b[1M"
 
 .PHONY:	clean fclean re

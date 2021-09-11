@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unique_chars.c                                  :+:    :+:            */
+/*   ft_stack_resize.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/03 01:36:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 22:51:29 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/09/03 13:05:05 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/09/11 12:15:54 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stack.h"
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_unique_chars(const char *str)
+#include <stdio.h>
+
+int	ft_stack_resize(t_stack *s)
 {
-	int		tab[256];
-	size_t	i;
+	void	**new_data;
 
-	ft_bzero(tab, sizeof(tab));
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (tab[(unsigned char)str[i]])
-			return (0);
-		tab[(unsigned char)str[i]]++;
-		i++;
-	}
+	new_data = ft_calloc(s->capacity * 2, sizeof(void *));
+	if (!new_data)
+		return (0);
+	ft_memcpy(new_data, s->data, s->size * sizeof(void *));
+	free(s->data);
+	s->data = new_data;
+	s->capacity *= 2;
 	return (1);
 }
