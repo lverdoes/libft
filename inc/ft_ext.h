@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/11 12:25:53 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/26 11:49:21 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	ft_str_to_upper(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strxjoin(const char *src, ...);
 size_t	ft_substrlen(const char *str, const char *set);
-void	ft_swap_stdc(void *a, void *b, size_t size_datatype);
+void	ft_swap(void *a, void *b, size_t size_datatype);
 int		ft_unique_chars(const char *str);
 
-# define GET_STRING(n) #n
-# define CONCATENATE(a, b) a##b
-# define FT_MIN(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); _a < _b ? _a : _b;})
-# define FT_MAX(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); _a > _b ? _a : _b;})
-# define FT_SWAP(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); typeof (*a) _tmp = (*a); (*_a) = (*_b); (*_b) = _tmp;})
+// # define GET_STRING(n) #n
+// # define CONCATENATE(a, b) a##b
+// # define FT_MIN(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); _a < _b ? _a : _b;})
+// # define FT_MAX(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); _a > _b ? _a : _b;})
+// # define FT_SWAP(a, b)({typeof (a) _a = (a); typeof (b) _b = (b); typeof (*a) _tmp = (*(a)); (*(_a)) = (*(_b)); (*(_b)) = (_tmp);})
 
 #endif

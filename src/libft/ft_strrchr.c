@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/31 16:20:04 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/03/31 16:20:06 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/20 19:08:16 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	ptr = NULL;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			ptr = (char *)s + i;
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)s + i);
 	return (ptr);
 }

@@ -6,13 +6,13 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 09:21:18 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/09 21:28:49 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/09/26 11:49:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	ft_swap_stdc(void *a, void *b, size_t size_datatype)
+void	ft_swap(void *a, void *b, size_t size_datatype)
 {
 	size_t			i;
 	unsigned char	*arg1;

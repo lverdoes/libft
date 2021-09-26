@@ -6,15 +6,15 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/09/09 21:29:56 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/09/26 12:38:18 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-FLAGS	= -Wall -Wextra -Werror
-STRICT	= -std=c99 -pedantic
+
+CFLAGS	= -Wall -Wextra -Werror -pedantic
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
-INCL	= includes
+INC		= inc
 
 LIBFT =	\
 	ft_memset.c \
@@ -75,7 +75,7 @@ EXT = \
 	ft_strcmp.c \
 	ft_strxjoin.c \
 	ft_substrlen.c \
-	ft_swap_stdc.c \
+	ft_swap.c \
 	ft_unique_chars.c
 
 GNL = \
@@ -132,7 +132,7 @@ TRIE = \
 	ft_trie_size_content.c \
 	ft_trie_size_nodes.c
 
-SRC_DIRS = \
+SDIRS = \
 	$(addprefix libft/, $(LIBFT)) \
 	$(addprefix ext/, $(EXT)) \
 	$(addprefix gnl/, $(GNL)) \
@@ -141,7 +141,7 @@ SRC_DIRS = \
 	$(addprefix stack/, $(STACK)) \
 	$(addprefix trie/, $(TRIE))
 
-OBJ_DIRS = \
+ODIRS = \
 	obj \
 	obj/libft \
 	obj/ext \
@@ -151,7 +151,7 @@ OBJ_DIRS = \
 	obj/stack \
 	obj/trie
 
-SRC	= $(addprefix src/, $(SRC_DIRS))
+SRC	= $(addprefix src/, $(SDIRS))
 OBJ = $(SRC:src/%.c=obj/%.o)
 
 all: $(NAME)
@@ -161,14 +161,14 @@ $(NAME): $(OBJ)
 	@echo "Created $@\x1b[1A\x1b[M"
 
 obj/%.o: src/%.c
-	@mkdir -p $(OBJ_DIRS)
-	@gcc $(FLAGS) -I$(INCL) -c $< -o $@ 
+	@mkdir -p $(ODIRS)
+	@gcc $(CFLAGS) -I$(INC) -c $< -o $@ 
 	@echo "Compiling libft/$<\x1b[1A\x1b[1M"
 
 .PHONY:	clean fclean re
 
 clean:
-	@/bin/rm -rf $(OBJ_DIRS)
+	@/bin/rm -rf $(ODIRS)
 	@echo "Deleted libft/obj"
 
 fclean: clean
@@ -181,5 +181,5 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc $(FLAGS) $(UNUSED) -I$(INCL) main.c $(NAME)
+	gcc $(FLAGS) $(UNUSED) -I$(INC) main.c $(NAME)
 	@./a.out
