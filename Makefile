@@ -6,133 +6,20 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/09/26 12:38:18 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/10/03 17:42:39 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 
-CFLAGS	= -Wall -Wextra -Werror -pedantic
+CFLAGS	= -Wall -Wextra -Werror -pedantic $(UNUSED)
 UNUSED	= -Wno-unused-variable -Wno-unused-parameter -Wno-unused-function
+
+SDIR	= src
+ODIR	= obj
 INC		= inc
 
-LIBFT =	\
-	ft_memset.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memccpy.c \
-	ft_memmove.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strlen.c \
-	ft_strlcpy.c \
-	ft_strlcat.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strnstr.c \
-	ft_strncmp.c \
-	ft_atoi.c \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_calloc.c \
-	ft_strdup.c \
-	ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_split.c \
-	ft_itoa.c \
-	ft_strmapi.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c
-
-EXT = \
-	ft_append.c \
-	ft_array_size.c \
-	ft_arraydup.c \
-	ft_atod.c \
-	ft_concat_array.c \
-	ft_counter.c \
-	ft_free.c \
-	ft_intdup.c \
-	ft_iswhitespace.c \
-	ft_print_array.c \
-	ft_print_int_array.c \
-	ft_realloc.c \
-	ft_replace.c \
-	ft_split_strchr.c \
-	ft_split_strnstr.c \
-	ft_str_contains_none.c \
-	ft_str_contains_only.c \
-	ft_str_to_lower.c \
-	ft_str_to_upper.c \
-	ft_strcmp.c \
-	ft_strxjoin.c \
-	ft_substrlen.c \
-	ft_swap.c \
-	ft_unique_chars.c
-
-GNL = \
-	ft_getfile.c \
-	get_next_line.c
-
-LIST = \
-	ft_list_add_back.c \
-	ft_list_add_front.c \
-	ft_list_combine.c \
-	ft_list_del_all.c \
-	ft_list_del_one.c \
-	ft_list_dup.c \
-	ft_list_find.c \
-	ft_list_insert_after.c \
-	ft_list_insert_before.c \
-	ft_list_insert_sort.c \
-	ft_list_is_sorted.c \
-	ft_list_iter.c \
-	ft_list_index.c \
-	ft_list_join.c \
-	ft_list_last.c \
-	ft_list_new.c \
-	ft_list_number.c \
-	ft_list_remove_if.c \
-	ft_list_remove_one.c \
-	ft_list_size.c \
-	ft_list_sort.c \
-	ft_list_unlink.c \
-	ft_list_print.c
-
-QUEUE = \
-	ft_dequeue.c \
-	ft_enqueue.c \
-	ft_queue_clear.c \
-	ft_queue_get_element.c \
-	ft_queue_init.c \
-	ft_queue_resize.c
-
-STACK = \
-	ft_stack_clear.c \
-	ft_stack_get_top.c \
-	ft_stack_init.c \
-	ft_stack_pop.c \
-	ft_stack_push.c \
-	ft_stack_resize.c
-
-TRIE = \
-	ft_trie_clear.c \
-	ft_trie_find.c \
-	ft_trie_alloc.c \
-	ft_trie_new.c \
-	ft_trie_remove.c \
-	ft_trie_size_content.c \
-	ft_trie_size_nodes.c
-
-SDIRS = \
+_OBJS	= \
 	$(addprefix libft/, $(LIBFT)) \
 	$(addprefix ext/, $(EXT)) \
 	$(addprefix gnl/, $(GNL)) \
@@ -141,45 +28,157 @@ SDIRS = \
 	$(addprefix stack/, $(STACK)) \
 	$(addprefix trie/, $(TRIE))
 
-ODIRS = \
-	obj \
-	obj/libft \
-	obj/ext \
-	obj/gnl \
-	obj/list \
-	obj/queue \
-	obj/stack \
-	obj/trie
+OBJS	= $(addsuffix .o, $(addprefix $(ODIR)/, $(_OBJS)))
 
-SRC	= $(addprefix src/, $(SDIRS))
-OBJ = $(SRC:src/%.c=obj/%.o)
+LIBFT =	\
+	ft_memset \
+	ft_bzero \
+	ft_memcpy \
+	ft_memccpy \
+	ft_memmove \
+	ft_memchr \
+	ft_memcmp \
+	ft_strlen \
+	ft_strlcpy \
+	ft_strlcat \
+	ft_strchr \
+	ft_strrchr \
+	ft_strnstr \
+	ft_strncmp \
+	ft_atoi \
+	ft_isalpha \
+	ft_isdigit \
+	ft_isalnum \
+	ft_isascii \
+	ft_isprint \
+	ft_toupper \
+	ft_tolower \
+	ft_calloc \
+	ft_strdup \
+	ft_substr \
+	ft_strjoin \
+	ft_strtrim \
+	ft_split \
+	ft_itoa \
+	ft_strmapi \
+	ft_putchar_fd \
+	ft_putstr_fd \
+	ft_putendl_fd \
+	ft_putnbr_fd
 
-all: $(NAME)
+EXT = \
+	ft_append \
+	ft_array_size \
+	ft_arraydup \
+	ft_atod \
+	ft_concat_array \
+	ft_counter \
+	ft_free \
+	ft_intdup \
+	ft_iswhitespace \
+	ft_print_array \
+	ft_print_int_array \
+	ft_realloc \
+	ft_replace \
+	ft_split_strchr \
+	ft_split_strnstr \
+	ft_str_contains_none \
+	ft_str_contains_only \
+	ft_str_to_lower \
+	ft_str_to_upper \
+	ft_strcmp \
+	ft_strxjoin \
+	ft_substrlen \
+	ft_swap \
+	ft_unique_chars
 
-$(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-	@echo "Created $@\x1b[1A\x1b[M"
+GNL = \
+	ft_getfile \
+	get_next_line
 
-obj/%.o: src/%.c
-	@mkdir -p $(ODIRS)
-	@gcc $(CFLAGS) -I$(INC) -c $< -o $@ 
-	@echo "Compiling libft/$<\x1b[1A\x1b[1M"
+LIST = \
+	ft_list_add_back \
+	ft_list_add_front \
+	ft_list_combine \
+	ft_list_del_all \
+	ft_list_del_one \
+	ft_list_dup \
+	ft_list_find \
+	ft_list_insert_after \
+	ft_list_insert_before \
+	ft_list_insert_sort \
+	ft_list_is_sorted \
+	ft_list_iter \
+	ft_list_index \
+	ft_list_join \
+	ft_list_last \
+	ft_list_new \
+	ft_list_number \
+	ft_list_remove_if \
+	ft_list_remove_one \
+	ft_list_size \
+	ft_list_sort \
+	ft_list_unlink \
+	ft_list_print
+
+QUEUE = \
+	ft_dequeue \
+	ft_enqueue \
+	ft_queue_clear \
+	ft_queue_get_element \
+	ft_queue_init \
+	ft_queue_resize
+
+STACK = \
+	ft_stack_clear \
+	ft_stack_get_top \
+	ft_stack_init \
+	ft_stack_pop \
+	ft_stack_push \
+	ft_stack_resize
+
+TRIE = \
+	ft_trie_clear \
+	ft_trie_find \
+	ft_trie_alloc \
+	ft_trie_new \
+	ft_trie_remove \
+	ft_trie_size_content \
+	ft_trie_size_nodes
+
+SUBDIRS = \
+	libft \
+	ext \
+	gnl \
+	list \
+	queue \
+	stack \
+	trie
 
 .PHONY:	clean fclean re
 
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo "Created $@\x1b[1A\x1b[M"
+
+$(ODIR)/%.o: $(SDIR)/%.c
+	@mkdir -p $(ODIR) $(addprefix $(ODIR)/, $(SUBDIRS))
+	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@ 
+	@echo "Compiling libft/$<\x1b[1A\x1b[1M"
+
 clean:
-	@/bin/rm -rf $(ODIRS)
+	@$(RM) $(OBJS)
 	@echo "Deleted libft/obj"
 
 fclean: clean
-	@/bin/rm -f $(NAME)
-	@/bin/rm -f a.out
-	@/bin/rm -f .DS_Store
+	@$(RM) $(NAME) a.out .DS_Store
 	@echo "Deleted $(NAME)"
 	@echo ""
 
 re: fclean all
 
 test: all
-	gcc $(FLAGS) $(UNUSED) -I$(INC) main.c $(NAME)
+	$(CC) $(CFLAGS) -I$(INC) main.c $(NAME)
 	@./a.out
