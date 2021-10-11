@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_stack.h                                         :+:    :+:            */
+/*   ft_deque_add_front.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/09/03 09:44:11 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/11 19:25:25 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/10/11 20:32:03 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/10/11 20:32:09 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STACK_H
-# define FT_STACK_H
+#include "ft_deque.h"
+#include <stdlib.h>
 
-# include <stddef.h>
-
-typedef struct s_stack
+int	ft_deque_add_front(t_deque *d, void *new_element)
 {
-	void	**data;
-	size_t	size;
-	size_t	capacity;
-}	t_stack;
-
-void	ft_stack_clear(t_stack *s, void (*f)(void *));
-void	*ft_stack_get_top(t_stack *s);
-int		ft_stack_init(t_stack *s);
-void	*ft_stack_pop(t_stack *s);
-int		ft_stack_push(t_stack *s, void *content);
-int		ft_stack_resize(t_stack *s);
-
-#endif
+	if (d->front == 0)
+	{
+		if (!ft_deque_reserve(d, d->capacity * 2))
+			return (0);
+	}
+	d->front--;
+	d->array[d->front] = new_element;
+	d->size++;
+	return (1);
+}

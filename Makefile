@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/10/03 17:42:39 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/10/07 21:15:29 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ _OBJS	= \
 	$(addprefix ext/, $(EXT)) \
 	$(addprefix gnl/, $(GNL)) \
 	$(addprefix list/, $(LIST)) \
+	$(addprefix deque/, $(DEQUE)) \
 	$(addprefix queue/, $(QUEUE)) \
 	$(addprefix stack/, $(STACK)) \
 	$(addprefix trie/, $(TRIE))
@@ -121,6 +122,11 @@ LIST = \
 	ft_list_unlink \
 	ft_list_print
 
+DEQUE = \
+	ft_deque_add_front \
+	ft_deque_clear \
+	ft_deque_reserve \
+
 QUEUE = \
 	ft_dequeue \
 	ft_enqueue \
@@ -151,11 +157,12 @@ SUBDIRS = \
 	ext \
 	gnl \
 	list \
+	deque \
 	queue \
 	stack \
 	trie
 
-.PHONY:	clean fclean re
+.PHONY:	all clean fclean re
 
 all: $(NAME)
 

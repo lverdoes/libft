@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_stack.h                                         :+:    :+:            */
+/*   ft_deque.h                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/09/03 09:44:11 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/11 19:25:25 by lverdoes      ########   odam.nl         */
+/*   Created: 2021/10/11 19:25:50 by lverdoes      #+#    #+#                 */
+/*   Updated: 2021/10/11 19:25:52 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STACK_H
-# define FT_STACK_H
+#ifndef FT_DEQUE_H
+# define FT_DEQUE_H
 
 # include <stddef.h>
 
-typedef struct s_stack
+typedef struct s_deque
 {
-	void	**data;
-	size_t	size;
+	void	**array;
 	size_t	capacity;
-}	t_stack;
+	size_t	size;
+	size_t	front;
+	size_t	back;
+}	t_deque;
 
-void	ft_stack_clear(t_stack *s, void (*f)(void *));
-void	*ft_stack_get_top(t_stack *s);
-int		ft_stack_init(t_stack *s);
-void	*ft_stack_pop(t_stack *s);
-int		ft_stack_push(t_stack *s, void *content);
-int		ft_stack_resize(t_stack *s);
+int		ft_deque_add_front(t_deque *deque, void *new_element);
+void	ft_deque_clear(t_deque **deque, void (*del)(void *));
+int		ft_deque_reserve(t_deque *d, size_t capacity);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_trie_init.c                                     :+:    :+:            */
+/*   ft_trie_alloc.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/07/19 17:56:13 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/25 15:10:59 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/07 18:30:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,5 @@
 
 t_trie	*ft_trie_alloc(void)
 {
-	t_trie	*node;
-
-	node = ft_calloc(1, sizeof(t_trie));
-	return (node);
+	return (ft_calloc(1, sizeof(t_trie)));
 }
