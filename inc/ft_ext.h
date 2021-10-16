@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/07 11:25:02 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/11 19:36:00 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/15 23:00:18 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_print_array(char **array);
 void	ft_print_int_array(int *array, size_t size);
 void	**ft_realloc(void **src, void *ptr, size_t *size);
 char	*ft_replace(char *s1, const char *s2, char *ptr, size_t ptr_len);
+unsigned char	reverse_bits(unsigned char src);
+void	print_bits(unsigned char src);
 char	**ft_split_strchr(const char *srs, const char *set, size_t *size);
 char	**ft_split_strnstr(const char *src, const char *set, size_t *size);
 int		ft_str_contains_none(const char *str, const char *set);

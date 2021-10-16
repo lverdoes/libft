@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/10/07 21:15:29 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/10/15 23:10:23 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,9 +78,11 @@ EXT = \
 	ft_intdup \
 	ft_iswhitespace \
 	ft_print_array \
+	ft_print_bits \
 	ft_print_int_array \
 	ft_realloc \
 	ft_replace \
+	ft_reverse_bits \
 	ft_split_strchr \
 	ft_split_strnstr \
 	ft_str_contains_none \
