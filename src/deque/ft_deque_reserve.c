@@ -6,31 +6,34 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/11 20:32:43 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/11 20:32:44 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/17 21:38:02 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_deque.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
 int	ft_deque_reserve(t_deque *d, size_t capacity)
 {
-	void	**new_array;
-	size_t	shift;
+	t_deque	new;
 
 	if (d->capacity >= capacity)
 		return (0);
-	new_array = malloc(capacity * sizeof(void **));
-	if (!new_array)
+	new.array = ft_calloc(capacity, sizeof(void *));
+	if (!new.array)
 		return (0);
-	if (d->size == 0)
-		return (1);
-	shift = (capacity - d->capacity) / 2;
-	ft_memcpy(&new_array[d->front - shift], &d->array[d->front], d->size);
-	d->front -= shift;
-	d->back -= shift;
+	new.capacity = capacity;		printf("new capa=[%lu]\n", new.capacity);
+	new.size = d->size;				printf("new size=[%lu]\n", new.size);
+	new.front = (new.capacity - d->size) / 2;	printf("new fron=[%lu]\n", new.front);
+	if (d->size)
+		new.back = new.front + d->size - 1;
+	else
+		new.back = new.front;		printf("new back=[%lu]\n", new.back);
+	if (d->size)
+		ft_memcpy(&new.array[new.front], &d->array[d->front], d->size * sizeof(void *));
 	free(d->array);
-	d->array = new_array;
+	ft_memcpy(d, &new, sizeof(t_deque));
 	return (1);
 }

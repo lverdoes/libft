@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/10/15 23:10:23 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/10/17 22:43:16 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,6 +125,9 @@ LIST = \
 	ft_list_print
 
 DEQUE = \
+	ft_deque_init \
+	ft_deque_insert \
+	ft_deque_add_back \
 	ft_deque_add_front \
 	ft_deque_clear \
 	ft_deque_reserve \

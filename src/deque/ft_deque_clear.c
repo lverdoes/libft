@@ -6,27 +6,24 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/11 20:32:48 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/11 20:34:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/17 21:49:20 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_deque.h"
 #include <stdlib.h>
 
-void	ft_deque_clear(t_deque **deque, void (*del)(void *))
+void	ft_deque_clear(t_deque *d, void (*del)(void *))
 {
-	t_deque	*tmp;
 	size_t	i;
 
-	if (!deque)
+	if (!d)
 		return ;
-	tmp = *deque;
 	i = 0;
-	while (i < tmp->size)
+	while (i < d->capacity)
 	{
-		del(&tmp->array[i]);
+		del(d->array[i]);
 		i++;
 	}
-	free(tmp->array);
-	*deque = NULL;
+	free(d->array);
 }
