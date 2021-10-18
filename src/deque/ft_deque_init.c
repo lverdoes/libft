@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/17 14:41:00 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/17 21:31:39 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/18 15:10:48 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_deque_init(t_deque *d, size_t reserve)
 
 	ft_bzero(d, sizeof(t_deque));
 	if (reserve < minimum_size)
-		ft_deque_reserve(d, minimum_size);
+		ft_deque_reallocate(d, minimum_size);
 	else
-		ft_deque_reserve(d, reserve);
+		ft_deque_reallocate(d, reserve);
 }

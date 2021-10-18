@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 19:48:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:41:37 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/18 15:30:15 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 **	Checks if the list is sorted or not.
 **	If sorted in ascending order, -1 is returned.
-**	If data is equal or only list has size 1, -1 is returned.
+**	If data is equal or list has size 1, -1 is returned.
 **	If not sorted, 0 is returned.
 **	If sorted in descending order, 1 is returned.
 */
