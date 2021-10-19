@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/10/18 21:36:51 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/10/19 19:23:43 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ LIBFT =	\
 	ft_putchar_fd \
 	ft_putstr_fd \
 	ft_putendl_fd \
-	ft_putnbr_fd
+	ft_putnbr_fd \
 
 EXT = \
 	ft_append \
@@ -93,11 +93,11 @@ EXT = \
 	ft_strxjoin \
 	ft_substrlen \
 	ft_swap \
-	ft_unique_chars
+	ft_unique_chars \
 
 GNL = \
 	ft_getfile \
-	get_next_line
+	get_next_line \
 
 LIST = \
 	ft_list_add_back \
@@ -122,33 +122,7 @@ LIST = \
 	ft_list_size \
 	ft_list_sort \
 	ft_list_unlink \
-	ft_list_print
-
-DEQUE = \
-	ft_deque_add_back \
-	ft_deque_add_front \
-	ft_deque_clear \
-	ft_deque_init \
-	ft_deque_insert_sorted \
-	ft_deque_insert \
-	ft_deque_is_sorted \
-	ft_deque_reallocate \
-
-QUEUE = \
-	ft_dequeue \
-	ft_enqueue \
-	ft_queue_clear \
-	ft_queue_get_element \
-	ft_queue_init \
-	ft_queue_resize
-
-STACK = \
-	ft_stack_clear \
-	ft_stack_get_top \
-	ft_stack_init \
-	ft_stack_pop \
-	ft_stack_push \
-	ft_stack_resize
+	ft_list_print \
 
 TRIE = \
 	ft_trie_clear \
@@ -157,17 +131,14 @@ TRIE = \
 	ft_trie_new \
 	ft_trie_remove \
 	ft_trie_size_content \
-	ft_trie_size_nodes
+	ft_trie_size_nodes \
 
 SUBDIRS = \
 	libft \
 	ext \
 	gnl \
 	list \
-	deque \
-	queue \
-	stack \
-	trie
+	trie \
 
 .PHONY:	all clean fclean re
 

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 11:14:55 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:43:15 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 22:03:25 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	Remove all nodes from the linked list that match DATA_REF,
 **	according to CMP_REF.
 **	
-**	Ex.:	ft_list_remove_if(&head, "Rigate", cmp_ref, del_var);
+**	Ex.:	ft_list_remove_if(&head, "ref", cmp_ref, del_var);
 **
 **	Ex. of CMP_REF:
 **	int		cmp_ref(void *data_ref, t_var *var)

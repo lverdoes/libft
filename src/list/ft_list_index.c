@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/30 19:51:05 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:40:50 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:37:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,17 @@
 **	See ft_list_find.c
 */
 
-size_t	ft_list_index(t_list *start, void *data_ref, int (*cmp)())
+size_t	ft_list_index(t_list *list, void *data_ref, int (*cmp)())
 {
 	size_t	ret;
-	t_list	*tmp;
 
 	ret = 0;
-	tmp = start;
-	while (tmp)
+	while (list)
 	{
-		if (!cmp(data_ref, tmp->content))
+		if (!cmp(data_ref, list->content))
 			break ;
 		ret++;
-		tmp = tmp->next;
+		list = list->next;
 	}
 	return (ret);
 }

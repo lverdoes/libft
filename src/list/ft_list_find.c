@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 00:19:26 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:40:40 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:37:09 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,13 @@
 **	}
 */
 
-t_list	*ft_list_find(t_list *start, void *data_ref, int (*cmp)())
+t_list	*ft_list_find(t_list *list, void *data_ref, int (*cmp)())
 {
-	t_list	*tmp;
-
-	tmp = start;
-	while (tmp)
+	while (list)
 	{
-		if (!cmp(data_ref, tmp->content))
-			return (tmp);
-		tmp = tmp->next;
+		if (!cmp(data_ref, list->content))
+			return (list);
+		list = list->next;
 	}
 	return (NULL);
 }

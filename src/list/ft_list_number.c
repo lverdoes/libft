@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 00:19:16 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/08/27 17:27:18 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:53:21 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,15 @@
 
 t_list	*ft_list_number(t_list *list, size_t number)
 {
-	t_list	*tmp;
 	size_t	i;
 
-	tmp = list;
 	i = 0;
-	while (tmp)
+	while (list)
 	{
 		if (i == number)
-			return (tmp);
+			return (list);
 		i++;
-		tmp = tmp->next;
+		list = list->next;
 	}
 	return (NULL);
 }

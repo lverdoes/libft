@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/27 23:36:17 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:39:46 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:34:27 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 
 void	ft_list_del_all(t_list **head, void (*del)(void *))
 {
-	t_list	*tmp;
 	t_list	*start;
+	t_list	*tmp;
 
 	if (!head)
 		return ;

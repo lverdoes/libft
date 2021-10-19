@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 01:59:14 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/07/02 21:28:16 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 22:03:17 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	The node is unlinked and freed.
 **
 **	Ex.:
-**	ft_list_remove_one(&head, ft_list_find(head, "Rigate",  cmp_ref), del_var);
+**	ft_list_remove_one(&head, ft_list_find(head, "ref",  cmp_ref), del_var);
 */
 
 void	ft_list_remove_one(t_list **head, t_list *list, void (*del)(void *))

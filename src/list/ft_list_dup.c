@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/02/05 11:55:57 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:40:27 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:35:24 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,23 @@ static t_list	*clean_up(t_list *dup_h, t_list *dup_c, void (*del)(void *))
 	return (NULL);
 }
 
-t_list	*ft_list_dup(t_list *head, void *(*dup)(void *), void (*del)(void *))
+t_list	*ft_list_dup(t_list *src, void *(*dup)(void *), void (*del)(void *))
 {
 	t_list	*dup_head;
 	void	*dup_content;
 	t_list	*new;
-	t_list	*tmp;
 
 	dup_head = NULL;
-	tmp = head;
-	while (tmp)
+	while (src)
 	{
-		dup_content = dup(tmp->content);
+		dup_content = dup(src->content);
 		if (!dup_content)
 			return (clean_up(dup_head, dup_content, del));
 		new = ft_list_new(dup_content);
 		if (!new)
 			return (clean_up(dup_head, dup_content, del));
 		ft_list_add_back(&dup_head, new);
-		tmp = tmp->next;
+		src = src->next;
 	}
 	return (dup_head);
 }

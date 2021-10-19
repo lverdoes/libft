@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/01 08:06:50 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:55:01 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 21:53:41 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,17 @@ void	ft_list_print(t_list *list, void (*print_function)(), int fd)
 {
 	size_t	len;
 	size_t	i;
-	t_list	*tmp;
 
 	len = ft_list_size(list);
 	i = 0;
-	tmp = list;
-	while (tmp)
+	while (list)
 	{
 		ft_putstr_fd("list nr: [", fd);
 		put_indentation_space(i, len, fd);
 		ft_putnbr_fd((int)i, fd);
 		ft_putendl_fd("]", fd);
-		print_function(tmp->content, fd);
+		print_function(list->content, fd);
 		i++;
-		tmp = tmp->next;
+		list = list->next;
 	}
 }

@@ -6,12 +6,12 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/27 23:35:33 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 10:02:33 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 20:09:12 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_ext.h"
+#include <stdlib.h>
 
 /*
 **	Delete one node from memory.
@@ -24,5 +24,5 @@ void	ft_list_del_one(t_list *list, void (*del)(void *))
 	if (!list)
 		return ;
 	del(list->content);
-	ft_free(list);
+	free(list);
 }

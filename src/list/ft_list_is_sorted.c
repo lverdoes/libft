@@ -6,67 +6,33 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 19:48:09 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/18 15:30:15 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 19:43:52 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
 /*
-**	Checks if the list is sorted or not.
-**	If sorted in ascending order, -1 is returned.
-**	If data is equal or list has size 1, -1 is returned.
+**	If sorted in ascending order, 1 is returned.
+**	If data is equal or listsize == 1, 1 is returned.
 **	If not sorted, 0 is returned.
-**	If sorted in descending order, 1 is returned.
 */
 
-static int	check_ascending(t_list *prev, t_list *tmp, int (*cmp)())
-{
-	int	ret;
-
-	while (tmp)
-	{
-		ret = cmp(prev->content, tmp->content);
-		if (ret > 0)
-			return (0);
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	return (-1);
-}
-
-static int	check_descending(t_list *prev, t_list *tmp, int (*cmp)())
-{
-	int	ret;
-
-	while (tmp)
-	{
-		ret = cmp(prev->content, tmp->content);
-		if (ret < 0)
-			return (0);
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int	ft_list_is_sorted(t_list **head, int (*cmp)())
+int	ft_list_is_sorted(t_list *head, int (*cmp)())
 {
 	int		ret;
 	t_list	*tmp;
 	t_list	*prev;
 
-	prev = *head;
-	tmp = (*head)->next;
+	prev = head;
+	tmp = head->next;
 	while (tmp)
 	{
 		ret = cmp(prev->content, tmp->content);
-		if (ret < 0)
-			return (check_ascending(prev->next, tmp->next, *cmp));
 		if (ret > 0)
-			return (check_descending(prev->next, tmp->next, *cmp));
+			return (0);
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	return (-1);
+	return (1);
 }

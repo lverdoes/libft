@@ -6,28 +6,26 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 21:31:10 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/09/26 11:50:08 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/19 22:07:14 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include "ft_ext.h"
 
-void	ft_list_sort(t_list *head, int (*cmp)())
+void	ft_list_sort(t_list *left, int (*cmp)())
 {
-	t_list	*i;
-	t_list	*j;
+	t_list	*right;
 
-	i = head;
-	while (i)
+	while (left)
 	{
-		j = i->next;
-		while (j)
+		right = left->next;
+		while (right)
 		{
-			if (cmp(i->content, j->content) > 0)
-				ft_swap(&i->content, &j->content, sizeof(void *));
-			j = j->next;
+			if (cmp(left->content, right->content) > 0)
+				ft_swap(&left->content, &right->content, sizeof(void *));
+			right = right->next;
 		}
-		i = i->next;
+		left = left->next;
 	}
 }
