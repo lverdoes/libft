@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/27 23:35:58 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/05/26 09:42:11 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/11/08 16:46:40 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 t_list	*ft_list_new(void *content)
 {
-	t_list	*new_list;
+	t_list	*new;
 
-	new_list = malloc(sizeof(t_list));
-	if (!new_list)
+	new = malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	new_list->content = content;
-	new_list->prev = NULL;
-	new_list->next = NULL;
-	return (new_list);
+	new->content = content;
+	new->prev = NULL;
+	new->next = NULL;
+	return (new);
 }

@@ -6,7 +6,7 @@
 #    By: lverdoes <lverdoes@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 13:12:33 by lverdoes      #+#    #+#                  #
-#    Updated: 2021/10/19 19:23:43 by lverdoes      ########   odam.nl          #
+#    Updated: 2021/11/08 16:51:42 by lverdoes      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,7 +158,8 @@ clean:
 	@echo "Deleted libft/obj"
 
 fclean: clean
-	@$(RM) $(NAME) a.out .DS_Store
+	@$(RM) $(NAME) a.out .DS_Store .vscode
+	@$(RM) -r $(ODIR)
 	@echo "Deleted $(NAME)"
 	@echo ""
 

@@ -6,7 +6,7 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/15 23:00:43 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/16 09:08:59 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/10/31 18:38:51 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	print_bits(unsigned char src)
 	while (i)
 	{
 		i--;
-		if (src & 1)
-			str[i] = '1';
-		else
-			str[i] = '0';
+		str[i] = '0' + (src & 1);
 		src >>= 1;
 	}
 	write(1, str, 8);
