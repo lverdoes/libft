@@ -6,13 +6,13 @@
 /*   By: lverdoes <lverdoes@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/03 01:12:11 by lverdoes      #+#    #+#                 */
-/*   Updated: 2021/10/30 11:16:46 by lverdoes      ########   odam.nl         */
+/*   Updated: 2021/11/08 18:23:03 by lverdoes      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_str_contains_only(const char *str, const char *set)
+int	ft_str_contains_none(const char *str, const char *set)
 {
 	char	tab[256];
 	size_t	i;
